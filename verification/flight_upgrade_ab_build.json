@@ -6,7 +6,7 @@
   "source_project": "verification\\_build\\upgrade_ab\\flight\\mini.uvprojx",
   "source_sha256": {
     "j_memory.sct": "cc3e8ad44adeb438144e690d0ffa740be791b16ce7d8373622536a6d3e8657e9",
-    "mini.uvprojx": "5e0ca84224987eee1b629d72f48ee7b77307ccb11d31dbd4b2763731cc8c301f",
+    "mini.uvprojx": "baa5c5b56a6c032c9de57649d34db0d87014550b4180ceb33045e516e01fd80c",
     "CONFIG\\ADC.c": "d2fcfd76561a46d22badb46cbdfc6bb82a43d2f7172afc8ab3c8fbabe6410272",
     "CONFIG\\ADC.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "CONFIG\\adc_dma.h": "956bb2d3f5320c555f49624b8920d61bc72615339b0c8b72d5ec31bc7040a5c9",
@@ -45,8 +45,10 @@
     "HAL\\remote.h": "939471950a36aff9f4445815f7943ffbfab295d0e5ef1b204d27b9f149f939b0",
     "HARDWARE\\flow.c": "5dfe6dcfd3737d91d48508725b0001fc235cf38d2016bc056a0e84e71adfa994",
     "HARDWARE\\flow.h": "3a911f25f310a01355a902c0bb1cdd5a474e1f01530c3413f5d2d66b872ac164",
-    "HARDWARE\\j_bh1750.c": "d1b15ed61f6c72bf32aebb5f15cf3d37a10d6c68f610427dd6a9a66f2d2bfe5d",
+    "HARDWARE\\j_bh1750.c": "73e65df6fbdb6e31597433640346684be17322a532941d5e974a0bf1740ab773",
     "HARDWARE\\j_bh1750.h": "489f2ab88e63b3d19cec12395d51603cc8cdd7ae29da7dd2b92d2f03edd6347d",
+    "HARDWARE\\j_bh_i2c.c": "d8ad075e1fde400db89c06bfdf059f63fa7da0f0766c3a524d4e5c4f009f4704",
+    "HARDWARE\\j_bh_i2c.h": "9794330f55f50f0e4aa54e9582a2bb50cb0bf3dc9b2f221e51d5b1966c01566a",
     "HARDWARE\\LED.c": "cef483183252c0baa8bd30fedf7bddcff6016749bf0d6910c488b13c231152cc",
     "HARDWARE\\LED.h": "5e942a084032f0f227ef648dd34a1fd68305780c8cbb07539d3290d5f9536704",
     "HARDWARE\\mpu6050.c": "192fa365d848b217cab743ce6f08a1d3a4ebe2792688047ecaad7bebda22051d",
@@ -156,9 +158,9 @@
     "Lib\\src\\stm32f10x_usart.c": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
     "Lib\\src\\stm32f10x_wwdg.c": "1d51fbbe3da7731b2303408f00693b51dbf62226590b1264cbbf35be01aa90ea"
   },
-  "flash_programmed_bytes": 29192,
+  "flash_programmed_bytes": 29800,
   "flash_capacity_bytes": 65536,
-  "ram_allocated_bytes_including_stack_heap": 6384,
+  "ram_allocated_bytes_including_stack_heap": 6392,
   "ram_capacity_bytes": 20480,
   "ram_regions": [
     [
@@ -167,25 +169,25 @@
       "RW"
     ],
     [
-      "0x20000240",
+      "0x20000248",
       5808,
       "ZI"
     ]
   ],
   "ram_method": "highest allocated RAM end minus 0x20000000; includes decompressed RW gaps and retained stack/heap",
-  "flash_span_bytes": 47792,
-  "initial_sp": "0x200018f0",
+  "flash_span_bytes": 48096,
+  "initial_sp": "0x200018f8",
   "reset_vector": "0x8000105",
   "calibration_page_reserved": true,
   "warnings": 3,
   "artifacts": {
     "flight_upgrade_ab.hex": {
-      "bytes": 82177,
-      "sha256": "c30776fe6acfd60a89ddcc30a406b6720cec565f63b03347a50a0f0333a46f27"
+      "bytes": 83887,
+      "sha256": "6d2f9285e9009f60e51f0eac7f89800bd5d0b86c6dd0de7de6226d4bf607fb4e"
     },
     "flight_upgrade_ab.axf": {
-      "bytes": 578816,
-      "sha256": "607ff333af21528be13e85fcaf56a62ee93d4227c5b8056e670ae2c5f8241041"
+      "bytes": 583104,
+      "sha256": "28e4e91420fefd40aa4375c8bc77075e6760b39d576887ad6d26d919c2c3de0d"
     }
   },
   "flashed": false,

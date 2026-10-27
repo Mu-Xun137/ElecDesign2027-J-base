@@ -1,0 +1,10 @@
+PASS correct_open_drain_pins_and_idle
+PASS command_frame_address_ack_and_stop
+PASS receive_two_bytes_ack_then_final_nack
+PASS receive_single_byte_sends_nack
+PASS address_nack_stops_and_next_transaction_recovers
+PASS command_and_read_address_nacks_are_errors
+PASS stuck_scl_is_bounded_and_releases_pins
+PASS stuck_sda_is_rejected_and_can_retry
+PASS finite_clock_stretch_and_invalid_receive
+RESULT cases=9 checks=1304

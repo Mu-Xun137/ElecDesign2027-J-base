@@ -3,6 +3,7 @@
 #include "ALL_DEFINE.h"
 #include "j_platform.h"
 #include "j_bh1750.h"
+#include "j_bh_i2c.h"
 #include "j_protocol.h"
 #include "control.h"
 #include "flow.h"
@@ -25,7 +26,7 @@ extern volatile uint8_t j_mpu_ready,j_mpu_sample_ok;
 extern volatile uint32_t j_mpu_last_ms;
 extern int16_t MpuOffset[6];
 extern void SysTick_Handler(void),TIM1_UP_IRQHandler(void);
-static unsigned checks,cases,range_reads,bh_reads,command_count;
+static unsigned checks,cases,range_reads,bh_reads,command_count,bh_bus_inits;
 static const char *current;
 static uint8_t imu_bad,lc_bad,bh_bad,tim_pending;
 static uint16_t range_cm=80,bh_raw=480;
@@ -51,10 +52,11 @@ int8_t IIC_read_Bytes(uint8_t a,uint8_t r,uint8_t *b,uint8_t n)
     if(a==0xC4 && r==0x33 && n==5) { ++range_reads;if(lc_bad)return 1;b[0]=(uint8_t)(range_cm>>8);b[1]=(uint8_t)range_cm;b[4]=80;return 0; }
     return 1;
 }
-int8_t IIC_Send_Command(uint8_t a,uint8_t command)
-{ CHECK(a==0x46);if(command_count<32)commands[command_count++]=command;return bh_bad; }
-int8_t IIC_Receive_Bytes(uint8_t a,uint8_t *b,uint8_t n)
-{ CHECK(a==0x46 && n==2);++bh_reads;if(bh_bad)return 1;b[0]=(uint8_t)(bh_raw>>8);b[1]=(uint8_t)bh_raw;return 0; }
+void JBHI2C_Init(void) { ++bh_bus_inits; }
+int8_t JBHI2C_SendCommand(uint8_t command)
+{ if(command_count<32)commands[command_count++]=command;return bh_bad; }
+int8_t JBHI2C_Receive(uint8_t *b,uint8_t n)
+{ CHECK(n==2);++bh_reads;if(bh_bad)return 1;b[0]=(uint8_t)(bh_raw>>8);b[1]=(uint8_t)bh_raw;return 0; }
 uint32_t JBoot_Session(uint32_t entropy) { (void)entropy;return ++session_seed; }
 uint8_t NRF24L01_RxPacket(uint8_t *p) { (void)p;return 1; }
 volatile uint8_t j_radio_tx_busy;
@@ -65,7 +67,7 @@ static void fixture(void)
     SysTick_count=1000;imu_bad=lc_bad=bh_bad=0;range_cm=80;bh_raw=480;
     memset(&MPU6050,0,sizeof(MPU6050));memset(&Angle,0,sizeof(Angle));memset((void *)&ALL_flag,0,sizeof(ALL_flag));
     memset(MpuOffset,0,12);j_mpu_ready=1;j_mpu_last_ms=SysTick_count;
-    j_deadline_fault=0;range_reads=bh_reads=command_count=reply_count=0;
+    j_deadline_fault=0;range_reads=bh_reads=command_count=reply_count=bh_bus_inits=0;
     JPlatform_Init();JPlatform_ZeroMotors();
 }
 static void limits(PidObject *p,float out,float integ)
@@ -134,6 +136,13 @@ static void bh_sample_period_survives_zero_timestamp_wrap(void)
     JBH_Tick(&s,186);CHECK(command_count==3);JBH_Tick(&s,199);CHECK(command_count==3);
     JBH_Tick(&s,200);CHECK(command_count==4);
 }
+static void separate_light_bus_failure_keeps_range_and_imu_valid(void)
+{
+    unsigned k;fixture();CHECK(bh_bus_inits==1);bh_bad=1;
+    for(k=0;k<12;++k) { SysTick_count+=6;JPlatform_ControlTick(0.006f,1); }
+    CHECK(!j_sensor.value.light_ok&&j_sensor.value.range_ok&&j_sensor.value.imu_ok);
+    CHECK(range_reads==12&&j_sensor.value.height_mm==800&&j_mpu_sample_ok);
+}
 static void imu_failed_transaction_does_not_publish_garbage(void)
 {
     _st_Mpu before;uint32_t stamp;fixture();MpuGetData();CHECK(j_mpu_sample_ok&&MPU6050.accZ==8192);
@@ -185,6 +194,7 @@ int main(void)
     RUN(actual_led_channel_mapping_and_low_polarity);RUN(real_lc08_driver_units_and_no_silent_mode_exit);
     RUN(real_bh_driver_distinct_one_shot_samples);RUN(bh_saturation_io_failure_and_retry);
     RUN(bh_sample_period_survives_zero_timestamp_wrap);
+    RUN(separate_light_bus_failure_keeps_range_and_imu_valid);
     RUN(imu_failed_transaction_does_not_publish_garbage);RUN(whole_bus_failure_stops_without_laser_handover);
     RUN(pid_limits_antiwindup_and_derivative_measurement);RUN(actual_systick_and_scheduler_have_one_clock_owner);
     RUN(actual_deadline_handler_clears_pwm);RUN(telemetry_turnaround_delay_not_unsigned_underflow);

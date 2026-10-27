@@ -69,7 +69,8 @@
 ".\output\j_platform.o"
 ".\output\j_boot.o"
 ".\output\j_bh1750.o"
---library_type=microlib --strict --scatter ".\Output\flight_basic.sct"
+".\output\j_bh_i2c.o"
+--library_type=microlib --strict --scatter ".\j_memory.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\List\flight_basic.map" -o .\Output\flight_basic.axf

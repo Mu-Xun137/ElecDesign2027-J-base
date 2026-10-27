@@ -1731,13 +1731,16 @@ I (.\Lib\inc\misc.h)(0x4D783BB4)
 I (.\Lib\inc\stm32f10x_bkp.h)(0x4D783BB4)
 I (.\Lib\inc\stm32f10x_pwr.h)(0x4D783BB4)
 I (HAL\j_boot.h)(0x6ADFFBFF)
-F (.\HARDWARE\j_bh1750.c)(0x6AE03509)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\StartUp -I .\Lib\inc -I .\Lib\src -I .\USER -I .\MATH -I .\CONFIG -I .\HARDWARE -I .\HAL -I .\USB_hid -I .\USB_library-IE:\Keil5\Pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\output\j_bh1750.o --omf_browse .\output\j_bh1750.crf --depend .\output\j_bh1750.d)
+F (.\HARDWARE\j_bh1750.c)(0x6AE0ACD7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\StartUp -I .\Lib\inc -I .\Lib\src -I .\USER -I .\MATH -I .\CONFIG -I .\HARDWARE -I .\HAL -I .\USB_hid -I .\USB_library-IE:\Keil5\Pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\output\j_bh1750.o --omf_browse .\output\j_bh1750.crf --depend .\output\j_bh1750.d)
 I (HARDWARE\j_bh1750.h)(0x6ADFFB95)
 I (.\HAL\j_core.h)(0x6AE02F2B)
 I (E:\Keil5\Core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (.\HAL\j_config.h)(0x6AE02FE0)
 I (.\HAL\j_nav.h)(0x6AE006B5)
-I (.\CONFIG\I2C.h)(0x5995B52B)
+I (HARDWARE\j_bh_i2c.h)(0x6AE0ACD7)
+F (.\HARDWARE\j_bh_i2c.c)(0x6AE0ACD7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\StartUp -I .\Lib\inc -I .\Lib\src -I .\USER -I .\MATH -I .\CONFIG -I .\HARDWARE -I .\HAL -I .\USB_hid -I .\USB_library-IE:\Keil5\Pack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="537" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\output\j_bh_i2c.o --omf_browse .\output\j_bh_i2c.crf --depend .\output\j_bh_i2c.d)
+I (HARDWARE\j_bh_i2c.h)(0x6AE0ACD7)
+I (E:\Keil5\Core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (.\StartUp\stm32f10x.h)(0x6071B771)
 I (.\StartUp\core_cm3.h)(0x6749DAA8)
 I (.\StartUp\system_stm32f10x.h)(0x4D783CAA)

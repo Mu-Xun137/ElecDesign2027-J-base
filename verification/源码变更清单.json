@@ -1,18 +1,43 @@
 [
   {
+    "file": "flight/JLinkLog.txt",
+    "status": "modified",
+    "sha256": "2c4cf19ed2b716404737ee38d00905cc412bab95872209539d57dfe0645a0a6f"
+  },
+  {
+    "file": "flight/JLinkSettings.ini",
+    "status": "added",
+    "sha256": "63b2920943f2382d47f2dffb269c4575362c5735140896d0fd4334c67813037b"
+  },
+  {
     "file": "flight/j_memory.sct",
     "status": "added",
     "sha256": "cc3e8ad44adeb438144e690d0ffa740be791b16ce7d8373622536a6d3e8657e9"
   },
   {
+    "file": "flight/mini.uvguix.jxgm",
+    "status": "added",
+    "sha256": "4287cffb31cfd2cf70dd055c2df388954f978ddf0220e2a8a8b20f58310e811a"
+  },
+  {
+    "file": "flight/mini.uvoptx",
+    "status": "added",
+    "sha256": "b761ca25355be4f6db9976942e6b8bf1a27e43867bfd7b985ff17e50935f096e"
+  },
+  {
     "file": "flight/mini.uvprojx",
     "status": "modified",
-    "sha256": "5e0ca84224987eee1b629d72f48ee7b77307ccb11d31dbd4b2763731cc8c301f"
+    "sha256": "baa5c5b56a6c032c9de57649d34db0d87014550b4180ceb33045e516e01fd80c"
   },
   {
     "file": "flight/CONFIG/IIC_SOFTWARE.c",
     "status": "modified",
     "sha256": "6275d9e81e970dc5144b35c61b4084dc3330385439ef5c823f28febcc4ca910f"
+  },
+  {
+    "file": "flight/DebugConfig/Target_1_STM32F103C8_1.0.0.dbgconf",
+    "status": "added",
+    "sha256": "e8e0a727328839728e29631f7bc97913f0dc214e1415960551216e89cb9d77b6"
   },
   {
     "file": "flight/HAL/control.c",
@@ -102,12 +127,22 @@
   {
     "file": "flight/HARDWARE/j_bh1750.c",
     "status": "added",
-    "sha256": "d1b15ed61f6c72bf32aebb5f15cf3d37a10d6c68f610427dd6a9a66f2d2bfe5d"
+    "sha256": "73e65df6fbdb6e31597433640346684be17322a532941d5e974a0bf1740ab773"
   },
   {
     "file": "flight/HARDWARE/j_bh1750.h",
     "status": "added",
     "sha256": "489f2ab88e63b3d19cec12395d51603cc8cdd7ae29da7dd2b92d2f03edd6347d"
+  },
+  {
+    "file": "flight/HARDWARE/j_bh_i2c.c",
+    "status": "added",
+    "sha256": "d8ad075e1fde400db89c06bfdf059f63fa7da0f0766c3a524d4e5c4f009f4704"
+  },
+  {
+    "file": "flight/HARDWARE/j_bh_i2c.h",
+    "status": "added",
+    "sha256": "9794330f55f50f0e4aa54e9582a2bb50cb0bf3dc9b2f221e51d5b1966c01566a"
   },
   {
     "file": "flight/HARDWARE/LED.c",
@@ -128,6 +163,16 @@
     "file": "flight/HARDWARE/nrf24l01.c",
     "status": "modified",
     "sha256": "ec18207f6cafc64739b3f907d8cacdc73c27445429c587606569726c62fe8941"
+  },
+  {
+    "file": "flight/List/flight_basic.map",
+    "status": "added",
+    "sha256": "ec6ef09fb9febb35590b15f40cf3bec68a44c706b1915d430e72d28a9ba5c746"
+  },
+  {
+    "file": "flight/List/startup_stm32f10x_md.lst",
+    "status": "added",
+    "sha256": "933ac78fbc24096f34cda246b40eeecbc4500c4134137c67a7159f341bfd2da1"
   },
   {
     "file": "flight/MATH/imu.c",
@@ -175,14 +220,39 @@
     "sha256": "bcc26891054ba5d34bc41a18b1346150e2e839cf6edbfa737bde93c2d4de3d54"
   },
   {
+    "file": "remote/JLinkLog.txt",
+    "status": "modified",
+    "sha256": "563b36a1fabd71dacf38e30843e3749f6bbb288feb8bf9fa2d332a1c80ec3545"
+  },
+  {
+    "file": "remote/JLinkSettings.ini",
+    "status": "added",
+    "sha256": "63b2920943f2382d47f2dffb269c4575362c5735140896d0fd4334c67813037b"
+  },
+  {
     "file": "remote/j_memory.sct",
     "status": "added",
     "sha256": "988df523178071fc4c43d82c3639374d7c8bfe0c423d4fd145695928cb877092"
   },
   {
+    "file": "remote/remote.uvguix.jxgm",
+    "status": "added",
+    "sha256": "392951e424692fbb56eb4a2f3372b6d138177b451d1df61e81108a5f8fb61462"
+  },
+  {
+    "file": "remote/remote.uvoptx",
+    "status": "added",
+    "sha256": "11bd42696ba00749cb0f2767643b66cda91c49641df68d555f78281b4c096c61"
+  },
+  {
     "file": "remote/remote.uvprojx",
     "status": "modified",
-    "sha256": "e4c2aa2e4e0b63cb0b2481a57065ddf0e93cafa6e65fb7b12857d29689397661"
+    "sha256": "cf7cb44af2b42748d0242ac1b18fdcc5cf6680b65769e7d30bb09e6dea271190"
+  },
+  {
+    "file": "remote/DebugConfig/Target_1_STM32F103C8_1.0.0.dbgconf",
+    "status": "added",
+    "sha256": "e8e0a727328839728e29631f7bc97913f0dc214e1415960551216e89cb9d77b6"
   },
   {
     "file": "remote/HAL/j_boot.c",
@@ -238,6 +308,16 @@
     "file": "remote/HARDWARE/nrf24l01.c",
     "status": "modified",
     "sha256": "ec18207f6cafc64739b3f907d8cacdc73c27445429c587606569726c62fe8941"
+  },
+  {
+    "file": "remote/Listings/remote_basic.map",
+    "status": "added",
+    "sha256": "ea2d67d6498d191c362900b2a26ca9ed4cd09ca0260d47ee2106cff2e5bace8c"
+  },
+  {
+    "file": "remote/Listings/startup_stm32f10x_md.lst",
+    "status": "added",
+    "sha256": "f8d8d21798e80b17bf53ae51232a1ee807ae58e088500064d6f0bcee25cb0571"
   },
   {
     "file": "remote/USER/main.c",

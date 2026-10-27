@@ -1,5 +1,6 @@
 """Audit built inputs/results, preserve maps, clean ONLY generated caches, and package."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import re
@@ -9,7 +10,7 @@ from build import hex_memory
 
 ROOT=Path(__file__).resolve().parents[1]
 VERIFY=ROOT/'verification'
-VERSION='J31-20261027'
+VERSION='J31-20261027-BH-PA9PA10'
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def read_json(p):return json.loads(p.read_text(encoding='utf-8'))
@@ -62,7 +63,7 @@ def build_audit():
     return reports
 
 def test_audit():
-    expected=['core','protocol','hardware','nav_single','nav_ab','nav_uncalibrated']
+    expected=['core','protocol','hardware','bh_i2c','nav_single','nav_ab','nav_uncalibrated']
     reports=read_json(VERIFY/'software_results.json')
     assert [r['suite'] for r in reports]==expected
     for r in reports:
@@ -123,6 +124,9 @@ def include_file(p):
     return p.is_file()
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--keep-builds',action='store_true',help='Preserve generated Output and _build folders')
+    args=parser.parse_args()
     builds=build_audit();tests=test_audit();originals=original_audit()
     overlay={p.relative_to(ROOT/'upgrade').as_posix() for p in (ROOT/'upgrade').rglob('*') if p.is_file()}
     assert overlay=={'flight/HAL/j_config.h','flight/HAL/j_nav.c','README_替换与回退.md'}
@@ -135,13 +139,15 @@ def main():
                 rel=p.relative_to(ROOT).as_posix();before=baseline.get(rel)
                 if sha(p)!=before:changed.append({'file':rel,'status':'modified' if before else 'added','sha256':sha(p)})
     dump(VERIFY/'源码变更清单.json',changed)
-    for generated in [VERIFY/'_build',ROOT/'flight/Output',ROOT/'remote/Output']:safe_generated_remove(generated)
+    if not args.keep_builds:
+        for generated in [VERIFY/'_build',ROOT/'flight/Output',ROOT/'remote/Output']:safe_generated_remove(generated)
     audit={'version':VERSION,'delivery_date':'2026-10-27','passed':True,'original_source_files_verified_unchanged':originals,
            'builds':[{'name':r['board']+'_'+r['variant'],'flash_bytes':r['flash_programmed_bytes'],
                       'ram_runtime_bytes':r['ram_allocated_bytes_including_stack_heap'],'warnings':r['warnings']} for r in builds],
            'new_compiler_warnings':0,'software_cases_passed':cases,'software_assertions_passed':checks,
            'upgrade_overlay_files':sorted(overlay),'upgrade_calibrated_gate':0,'hardware_access':False,'flashed':False,'motors_run':False,
            'real_flight_verified':False,'source_firmware_match':True,'baseline_preserved':True,
+           'bh1750_wiring':{'scl':'UART1/TX1/PA9','sda':'UART1/RX1/PA10','vcc':'3V3','gnd':'GND','addr':'GND'},
            'archive':ROOT.name+'.zip','archive_hash_file':ROOT.name+'.zip.sha256',
            'limitations':['LED实物映射未核验','推力/PID及阈值待标定','LC08增量更新和尺度待核验','升级导航实机未验证','无线C2非独立硬件急停','无机载蜂鸣/备用高度/自动降落/可靠低电量保护']}
     dump(VERIFY/'最终核验.json',audit)
@@ -151,7 +157,7 @@ def main():
         if not p.resolve().is_relative_to(ROOT.resolve()):raise ValueError('Nonlocal artifact')
     dump(manifest,{'version':VERSION,'algorithm':'SHA256','self_excluded':True,'files':{
         p.relative_to(ROOT).as_posix():{'bytes':p.stat().st_size,'sha256':sha(p)} for p in files}})
-    archive=ROOT.with_suffix('.zip')
+    archive=ROOT.with_name(ROOT.name+'.zip')
     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for p in files+[manifest]:z.write(p,ROOT.name+'/'+p.relative_to(ROOT).as_posix())
     with zipfile.ZipFile(archive) as z:

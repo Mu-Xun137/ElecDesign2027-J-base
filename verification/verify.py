@@ -14,7 +14,7 @@ def run_suite(name,units,defines=()):
     out=ROOT/'verification/native'/name;out.mkdir(parents=True,exist_ok=True)
     exe=out/'tests.exe'
     cmd=[str(TCC),'-std=c99','-Wall','-I'+str(ROOT/'flight/HAL'),'-I'+str(ROOT/'remote/HAL')]
-    if name=='hardware':
+    if name in ('hardware','bh_i2c'):
         cmd[1:1]=['-I'+str(ROOT/'verification/stubs'),'-I'+str(ROOT/'flight/HARDWARE'),'-I'+str(ROOT/'flight/MATH'),'-I'+str(ROOT/'flight/USER'),
                   '-include',str(ROOT/'verification/stubs/ALL_DEFINE.h')]
     cmd+=['-D'+x for x in defines]
@@ -48,6 +48,7 @@ def main():
       'hardware':['verification/test_hardware.c','flight/HAL/j_core.c','flight/HAL/j_sensors.c','flight/HAL/j_nav.c',
         'flight/HAL/j_protocol.c','flight/HAL/j_platform.c','flight/HAL/control.c','flight/HARDWARE/flow.c',
         'flight/HARDWARE/j_bh1750.c','flight/HARDWARE/mpu6050.c','flight/MATH/pid.c','flight/USER/delay.c','flight/USER/scheduler.c'],
+      'bh_i2c':['verification/test_bh_i2c.c','flight/HARDWARE/j_bh_i2c.c'],
       'nav_single':['verification/test_nav.c','flight/HAL/j_core.c','upgrade/flight/HAL/j_nav.c'],
       'nav_ab':['verification/test_nav.c','flight/HAL/j_core.c','upgrade/flight/HAL/j_nav.c'],
       'nav_uncalibrated':['verification/test_nav.c','flight/HAL/j_core.c','upgrade/flight/HAL/j_nav.c'],

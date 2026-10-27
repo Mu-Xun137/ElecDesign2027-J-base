@@ -35,6 +35,7 @@
     "flight\\HAL\\remote.h": "939471950a36aff9f4445815f7943ffbfab295d0e5ef1b204d27b9f149f939b0",
     "flight\\HARDWARE\\flow.h": "3a911f25f310a01355a902c0bb1cdd5a474e1f01530c3413f5d2d66b872ac164",
     "flight\\HARDWARE\\j_bh1750.h": "489f2ab88e63b3d19cec12395d51603cc8cdd7ae29da7dd2b92d2f03edd6347d",
+    "flight\\HARDWARE\\j_bh_i2c.h": "9794330f55f50f0e4aa54e9582a2bb50cb0bf3dc9b2f221e51d5b1966c01566a",
     "flight\\HARDWARE\\LED.h": "5e942a084032f0f227ef648dd34a1fd68305780c8cbb07539d3290d5f9536704",
     "flight\\HARDWARE\\mpu6050.h": "8f3e9676c51d17322f38633eaffd16eefb34855232b6889a09bb9a9dc687b636",
     "flight\\HARDWARE\\nrf24l01.h": "538997e932de5ec61201d617709c4cd245ec5bb3debf71b2c2c1c6a2a4a2f796",
@@ -144,7 +145,7 @@
     "verification\\stubs\\flash.h": "08eebfd9f556ec535c5bca0acb2e862410d9affad91d3b0630e3b100e9e002e9",
     "verification\\stubs\\I2C.h": "519b330f58f8d5e1969a10f89c93ed6a13f3ea573e890da6c54347b2a3c767ff",
     "verification\\stubs\\kalman.h": "121ed5af19e6df12cb39f8dfaa95a73d86593e43f5cc534e43890abacbcf15c8",
-    "verification\\stubs\\stm32f10x.h": "f64e634c1360d67af1c357778de1ccaa3f20c84de334562c8330f7032cad52a3",
+    "verification\\stubs\\stm32f10x.h": "a879bd8c5100d3e068475575ef317b4de53d6e20796d5ea3ad6a52ba68ae0940",
     "verification\\stubs\\sys.h": "519b330f58f8d5e1969a10f89c93ed6a13f3ea573e890da6c54347b2a3c767ff"
   },
   "firmware_executed_on_mcu": false,

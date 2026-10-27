@@ -6,7 +6,7 @@
   "source_project": "remote\\remote.uvprojx",
   "source_sha256": {
     "j_memory.sct": "988df523178071fc4c43d82c3639374d7c8bfe0c423d4fd145695928cb877092",
-    "remote.uvprojx": "e4c2aa2e4e0b63cb0b2481a57065ddf0e93cafa6e65fb7b12857d29689397661",
+    "remote.uvprojx": "cf7cb44af2b42748d0242ac1b18fdcc5cf6680b65769e7d30bb09e6dea271190",
     "APP\\main.c": "811f4ccd3742e55335cea55718b1899ebb057d4fa4c66203bdfdeb70c3c63527",
     "APP\\stm32f10x_conf.h": "e83ea5cfcd98e1f1ce641b2e761187236c5288458ff7f66d459e0a8da36470ae",
     "APP\\stm32f10x_it.c": "1d418b7dfa722c647d59f6cc1e25bb6e5092aab90ff15b68b7adaf377c7ea5e8",
@@ -129,8 +129,8 @@
       "sha256": "7157eab28307031259c81f5a775baea7d8db8ad3649c3ba7466a5ec1a7604113"
     },
     "remote_basic.axf": {
-      "bytes": 357284,
-      "sha256": "0bb8be517e869392b4f6d4241d287294d6b3c67019cd6c573a93a8c5d0127d65"
+      "bytes": 355944,
+      "sha256": "3e38d84df0dbc012530362932e05a501f52ef1c3c39c5ab83266470c0301e92d"
     }
   },
   "flashed": false,
