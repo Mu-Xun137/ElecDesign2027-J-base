@@ -1,0 +1,19 @@
+PASS eight_channel_bounds_and_mapping
+PASS invalid_packets_and_all_single_bit_errors
+PASS first_duplicate_reorder_and_bad_no_liveness
+PASS simultaneous_keys_loss_and_modular_wrap
+PASS reboot_and_reconnect_resynchronization
+PASS physical_debounce_boot_hold_and_all_keys
+PASS contact_bounce_no_false_press
+PASS telemetry_roundtrip_and_fresh_echo
+PASS takeover_once_and_old_reply_never_success
+PASS reboot_snapshot_and_out_of_order_feedback
+PASS continuous_three_second_alarm_and_click
+PASS direction_patterns_and_height_same_tone
+PASS whole_fault_and_direction_groups
+PASS stale_feedback_and_emergency_priority
+PASS feedback_timer_wrap
+PASS validated_physical_c2_first_frame_is_not_an_aux_edge
+PASS new_event_full_three_seconds_and_estop_discards_it
+PASS absolute_echo_age_rejects_old_ack_when_tx_paused
+RESULT cases=18 checks=14340

@@ -1,0 +1,11 @@
+PASS bounded_active_sampling_single_or_ab
+PASS no_source_and_flat_and_monotone_fields
+PASS coordinate_boundary_and_missing_evidence
+PASS point_dwell_and_new_sample_ids
+PASS budget_includes_forced_hold_and_wrap
+PASS start_reference_is_not_moved_to_current_air_position
+PASS force_requires_cross_samples_and_recheck
+PASS real_core_navigation_and_stable_holds
+PASS c4_cancellation_never_internally_restarts_search
+PASS c1_and_c2_abort_navigation
+RESULT cases=10 checks=24407

@@ -1,0 +1,14 @@
+PASS pwm_mixer_and_lock
+PASS c2_real_parser_clears_pwm_before_control_tick
+PASS actual_led_channel_mapping_and_low_polarity
+PASS real_lc08_driver_units_and_no_silent_mode_exit
+PASS real_bh_driver_distinct_one_shot_samples
+PASS bh_saturation_io_failure_and_retry
+PASS bh_sample_period_survives_zero_timestamp_wrap
+PASS imu_failed_transaction_does_not_publish_garbage
+PASS whole_bus_failure_stops_without_laser_handover
+PASS pid_limits_antiwindup_and_derivative_measurement
+PASS actual_systick_and_scheduler_have_one_clock_owner
+PASS actual_deadline_handler_clears_pwm
+PASS telemetry_turnaround_delay_not_unsigned_underflow
+RESULT cases=13 checks=68

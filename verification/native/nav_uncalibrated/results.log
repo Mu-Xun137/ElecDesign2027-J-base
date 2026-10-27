@@ -1,0 +1,2 @@
+PASS uncalibrated_navigation_is_rejected
+RESULT cases=1 checks=2

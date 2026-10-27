@@ -1,0 +1,257 @@
+[
+  {
+    "file": "flight/j_memory.sct",
+    "status": "added",
+    "sha256": "cc3e8ad44adeb438144e690d0ffa740be791b16ce7d8373622536a6d3e8657e9"
+  },
+  {
+    "file": "flight/mini.uvprojx",
+    "status": "modified",
+    "sha256": "5e0ca84224987eee1b629d72f48ee7b77307ccb11d31dbd4b2763731cc8c301f"
+  },
+  {
+    "file": "flight/CONFIG/IIC_SOFTWARE.c",
+    "status": "modified",
+    "sha256": "6275d9e81e970dc5144b35c61b4084dc3330385439ef5c823f28febcc4ca910f"
+  },
+  {
+    "file": "flight/HAL/control.c",
+    "status": "modified",
+    "sha256": "75c26b6dee086651ec2c0cfa20f649416fca5258f65b5c56ff1bf1aaf0a5c646"
+  },
+  {
+    "file": "flight/HAL/control.h",
+    "status": "modified",
+    "sha256": "cfe27a636a57e272a478c1b0c5c5492b1b7cd4d1676782865928b51e551afb24"
+  },
+  {
+    "file": "flight/HAL/j_boot.c",
+    "status": "added",
+    "sha256": "ccfc9a78542c9eeb4c4fdea171b3a128cecd7770e09b9476625995f98878a514"
+  },
+  {
+    "file": "flight/HAL/j_boot.h",
+    "status": "added",
+    "sha256": "8a72cd6a51e0362bb5cc6fe41b96db5411942efbe9c04935556f07b68195308c"
+  },
+  {
+    "file": "flight/HAL/j_config.h",
+    "status": "added",
+    "sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a"
+  },
+  {
+    "file": "flight/HAL/j_core.c",
+    "status": "added",
+    "sha256": "680eaad340506f93dd8b8d1c665857e04c183a7369772a04f78989ba712c1ed9"
+  },
+  {
+    "file": "flight/HAL/j_core.h",
+    "status": "added",
+    "sha256": "6a579cbfb7616470e95cc5e376fc025848966c11d24182b7febe65ac4fb22cfc"
+  },
+  {
+    "file": "flight/HAL/j_nav.c",
+    "status": "added",
+    "sha256": "70e00cb026e9edf86631f424a42294b5a15c0fca5bd4134dcf28be8dc8fadd05"
+  },
+  {
+    "file": "flight/HAL/j_nav.h",
+    "status": "added",
+    "sha256": "37ac5024a3d6cc837355dc2b582e5315a82c5065e4f3ed28280378ad8f216539"
+  },
+  {
+    "file": "flight/HAL/j_platform.c",
+    "status": "added",
+    "sha256": "ece2fa3c6cf161f771e1e352a0df250fb6be99810d2f46bb6a110802fe0ecd6a"
+  },
+  {
+    "file": "flight/HAL/j_platform.h",
+    "status": "added",
+    "sha256": "1dd8fb3dea3846442caf95e01e3229d13070ddd442eb70c6d8b8e16b2dc382a6"
+  },
+  {
+    "file": "flight/HAL/j_protocol.c",
+    "status": "added",
+    "sha256": "34064030d56989f403962177454c882338b3ca752c4a70b20a0386ec14b257fc"
+  },
+  {
+    "file": "flight/HAL/j_protocol.h",
+    "status": "added",
+    "sha256": "f72b949f520f235ae1371546dd2886a84ce64b8661f8fba30c452198639d9efd"
+  },
+  {
+    "file": "flight/HAL/j_sensors.c",
+    "status": "added",
+    "sha256": "fed762c9b93eebdba0ecf3c7290d6c6815606e0f4a822b763548f260f5a91f47"
+  },
+  {
+    "file": "flight/HAL/j_sensors.h",
+    "status": "added",
+    "sha256": "341ebea1396973a6ef8dc312d8640e1a305aa5870f312777307f39dbe345ef46"
+  },
+  {
+    "file": "flight/HAL/remote.c",
+    "status": "modified",
+    "sha256": "889a8942408314cd4f443947888b21485e7b45c9e6cbf0e204d2df977b24cb91"
+  },
+  {
+    "file": "flight/HARDWARE/flow.c",
+    "status": "modified",
+    "sha256": "5dfe6dcfd3737d91d48508725b0001fc235cf38d2016bc056a0e84e71adfa994"
+  },
+  {
+    "file": "flight/HARDWARE/j_bh1750.c",
+    "status": "added",
+    "sha256": "d1b15ed61f6c72bf32aebb5f15cf3d37a10d6c68f610427dd6a9a66f2d2bfe5d"
+  },
+  {
+    "file": "flight/HARDWARE/j_bh1750.h",
+    "status": "added",
+    "sha256": "489f2ab88e63b3d19cec12395d51603cc8cdd7ae29da7dd2b92d2f03edd6347d"
+  },
+  {
+    "file": "flight/HARDWARE/LED.c",
+    "status": "modified",
+    "sha256": "cef483183252c0baa8bd30fedf7bddcff6016749bf0d6910c488b13c231152cc"
+  },
+  {
+    "file": "flight/HARDWARE/LED.h",
+    "status": "modified",
+    "sha256": "5e942a084032f0f227ef648dd34a1fd68305780c8cbb07539d3290d5f9536704"
+  },
+  {
+    "file": "flight/HARDWARE/mpu6050.c",
+    "status": "modified",
+    "sha256": "192fa365d848b217cab743ce6f08a1d3a4ebe2792688047ecaad7bebda22051d"
+  },
+  {
+    "file": "flight/HARDWARE/nrf24l01.c",
+    "status": "modified",
+    "sha256": "ec18207f6cafc64739b3f907d8cacdc73c27445429c587606569726c62fe8941"
+  },
+  {
+    "file": "flight/MATH/imu.c",
+    "status": "modified",
+    "sha256": "d1c21403260772add1c8619e8278cc578487daa87979836da703605ea478ff9d"
+  },
+  {
+    "file": "flight/MATH/pid.c",
+    "status": "modified",
+    "sha256": "932ddcfca0225ec03ec7ae7b4375a9b3b0c8b5a84fda183b191115d065c4422d"
+  },
+  {
+    "file": "flight/StartUp/startup_stm32f10x_md.s",
+    "status": "modified",
+    "sha256": "e939794199a587d52900bb0127081eede947de00a9d82108d5be68b2699c70e3"
+  },
+  {
+    "file": "flight/StartUp/stm32f10x_it.c",
+    "status": "modified",
+    "sha256": "98af7bd42654f28ec39f15e0883294e7f4bf95d7e7ebd5ae5a8f07cd7a3381b8"
+  },
+  {
+    "file": "flight/USER/ALL_DATA.h",
+    "status": "modified",
+    "sha256": "0ffe92b2929840e235967ad897d64108bf38a180f9d1f4f61c5216f10367e435"
+  },
+  {
+    "file": "flight/USER/delay.c",
+    "status": "modified",
+    "sha256": "e10fb9147cd9477ddd3e2c348b66b48fb15bb3c142208db9dd2db3ce3d2b5f48"
+  },
+  {
+    "file": "flight/USER/INIT.c",
+    "status": "modified",
+    "sha256": "20582d2e3ba2a23654650e52a3f572474eaced03e7f2019dc504f5685ea36cdb"
+  },
+  {
+    "file": "flight/USER/main.c",
+    "status": "modified",
+    "sha256": "6f6bab30ee5bd819a5d2cb15111f847c06f99623ce45d7e180a1e53997530093"
+  },
+  {
+    "file": "flight/USER/scheduler.c",
+    "status": "modified",
+    "sha256": "bcc26891054ba5d34bc41a18b1346150e2e839cf6edbfa737bde93c2d4de3d54"
+  },
+  {
+    "file": "remote/j_memory.sct",
+    "status": "added",
+    "sha256": "988df523178071fc4c43d82c3639374d7c8bfe0c423d4fd145695928cb877092"
+  },
+  {
+    "file": "remote/remote.uvprojx",
+    "status": "modified",
+    "sha256": "e4c2aa2e4e0b63cb0b2481a57065ddf0e93cafa6e65fb7b12857d29689397661"
+  },
+  {
+    "file": "remote/HAL/j_boot.c",
+    "status": "added",
+    "sha256": "ccfc9a78542c9eeb4c4fdea171b3a128cecd7770e09b9476625995f98878a514"
+  },
+  {
+    "file": "remote/HAL/j_boot.h",
+    "status": "added",
+    "sha256": "8a72cd6a51e0362bb5cc6fe41b96db5411942efbe9c04935556f07b68195308c"
+  },
+  {
+    "file": "remote/HAL/j_config.h",
+    "status": "added",
+    "sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a"
+  },
+  {
+    "file": "remote/HAL/j_feedback.c",
+    "status": "added",
+    "sha256": "5af8be762b077ea909513ddda2b589c6d1fb802449673ab3dcfc3c4c67585006"
+  },
+  {
+    "file": "remote/HAL/j_feedback.h",
+    "status": "added",
+    "sha256": "8067d18d564fe0fc9871c2f131000bda500cc2927df2ebb3beaf2f662acca80c"
+  },
+  {
+    "file": "remote/HAL/j_keys.c",
+    "status": "added",
+    "sha256": "6e744e3e6a9a11a297c4370c42a314c620c1ccf73d3d8988d6b4425b72eaecef"
+  },
+  {
+    "file": "remote/HAL/j_keys.h",
+    "status": "added",
+    "sha256": "9a05a23158c982ab9d4d3fc1092e26752d139e55afbe21a005ed472da2cb9db5"
+  },
+  {
+    "file": "remote/HAL/j_protocol.c",
+    "status": "added",
+    "sha256": "34064030d56989f403962177454c882338b3ca752c4a70b20a0386ec14b257fc"
+  },
+  {
+    "file": "remote/HAL/j_protocol.h",
+    "status": "added",
+    "sha256": "f72b949f520f235ae1371546dd2886a84ce64b8661f8fba30c452198639d9efd"
+  },
+  {
+    "file": "remote/HAL/remote.c",
+    "status": "modified",
+    "sha256": "11b51c18d96733d4fb1a3cd064b1f217d6675ef95e58fad7c81c2388fa35bebe"
+  },
+  {
+    "file": "remote/HARDWARE/nrf24l01.c",
+    "status": "modified",
+    "sha256": "ec18207f6cafc64739b3f907d8cacdc73c27445429c587606569726c62fe8941"
+  },
+  {
+    "file": "remote/USER/main.c",
+    "status": "modified",
+    "sha256": "0432686ba1b30628ed4a9b2fd97226d83385cc7801e24d596d813f1a5a41b125"
+  },
+  {
+    "file": "remote/USER/sys.c",
+    "status": "modified",
+    "sha256": "2851660df13aa6c2a38170151270993392da408e9695a2e1070ce7595260c8ec"
+  },
+  {
+    "file": "remote/USER/sys.h",
+    "status": "modified",
+    "sha256": "5bc7053dabf49c3306e5bc8419bd5fea1bd025ad71909f772bdaf389cdcab7a2"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "version": "J31-20261027",
+  "delivery_date": "2026-10-27",
+  "passed": true,
+  "original_source_files_verified_unchanged": 222,
+  "builds": [
+    {
+      "name": "flight_basic",
+      "flash_bytes": 27788,
+      "ram_runtime_bytes": 6384,
+      "warnings": 3
+    },
+    {
+      "name": "remote_basic",
+      "flash_bytes": 7632,
+      "ram_runtime_bytes": 1240,
+      "warnings": 1
+    },
+    {
+      "name": "flight_upgrade_single",
+      "flash_bytes": 29120,
+      "ram_runtime_bytes": 6384,
+      "warnings": 3
+    },
+    {
+      "name": "flight_upgrade_ab",
+      "flash_bytes": 29192,
+      "ram_runtime_bytes": 6384,
+      "warnings": 3
+    }
+  ],
+  "new_compiler_warnings": 0,
+  "software_cases_passed": 83,
+  "software_assertions_passed": 100224,
+  "upgrade_overlay_files": [
+    "README_替换与回退.md",
+    "flight/HAL/j_config.h",
+    "flight/HAL/j_nav.c"
+  ],
+  "upgrade_calibrated_gate": 0,
+  "hardware_access": false,
+  "flashed": false,
+  "motors_run": false,
+  "real_flight_verified": false,
+  "source_firmware_match": true,
+  "baseline_preserved": true,
+  "archive": "无人机J题_交付_20261027.zip",
+  "archive_hash_file": "无人机J题_交付_20261027.zip.sha256",
+  "limitations": [
+    "LED实物映射未核验",
+    "推力/PID及阈值待标定",
+    "LC08增量更新和尺度待核验",
+    "升级导航实机未验证",
+    "无线C2非独立硬件急停",
+    "无机载蜂鸣/备用高度/自动降落/可靠低电量保护"
+  ]
+}
