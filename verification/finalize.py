@@ -10,7 +10,7 @@ from build import hex_memory
 
 ROOT=Path(__file__).resolve().parents[1]
 VERIFY=ROOT/'verification'
-VERSION='J31-20261027-BH-PA9PA10'
+VERSION='J31-20261029-TIM1-RCR0'
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def read_json(p):return json.loads(p.read_text(encoding='utf-8'))
@@ -83,6 +83,18 @@ def original_audit():
         count+=1
     return count
 
+def timer_audit():
+    reports=[]
+    for variant in ['basic','upgrade_single','upgrade_ab']:
+        r=read_json(VERIFY/('timer_'+variant+'_results.json'))
+        assert r['passed'] and not r['hardware_access'] and not r['flashed']
+        assert len(r['cases'])==4 and all(c['passed'] and c['rcr']==0 and
+            c['calculated_update_period_us']==3000 and c['irq_enabled'] for c in r['cases'])
+        for extension in ['axf','hex']:
+            assert sha(ROOT/'firmware'/variant/('flight_'+variant+'.'+extension))==r[extension+'_sha256']
+        reports.append(r)
+    return reports
+
 def parameters():
     text=(ROOT/'flight/HAL/j_config.h').read_text(encoding='utf-8')
     rows=[]
@@ -113,7 +125,7 @@ def summary(builds,tests):
     for r in builds:lines.append(f"| {r['board']}_{r['variant']} | {r['flash_programmed_bytes']} | {r['ram_allocated_bytes_including_stack_heap']} | 0 / {r['warnings']}（原库） |")
     lines+=['','飞控另外保留原标定页 1024 字节。RAM 包含解压后的 RW 地址间隙和 4096 字节保留栈；堆仅在链接保留时计入。HEX 地址、校验、Cortex-M3 启动向量均已检查。','','| 实际 C 测试集 | 用例 | 断言 | 编译宏 |','| --- | ---: | ---: | --- |']
     for r in tests:lines.append(f"| {r['suite']} | {r['cases']} | {r['assertions']} | {', '.join(r['defines']) or '基础默认'} |")
-    lines+=['',f'合计 **{cases} 个用例、{checks} 次断言通过**。单/双导航的已标定软件测试显式选择 `J_NAV_CALIBRATED=1`；交付升级 HEX 为保护配置 0，另有未标定拒绝测试。','', '状态机、协议、蜂鸣器、驱动/PWM 桩、理想坐标与光照模型的结论不等于 MCU 固件运行或实机试飞。光流尺度、推力/PID、实际灯声及飞行表现待按说明验证。','','所有构建日志为 `*_build.log`，内含实际工具命令；`*_build.json` 包含全部编译输入哈希、固件哈希与向量；链接资源详情见 `*_memory.map`。逐用例日志见 `native/<suite>/results.log`。']
+    lines+=['',f'合计 **{cases} 个用例、{checks} 次断言通过**。单/双导航的已标定软件测试显式选择 `J_NAV_CALIBRATED=1`；交付升级 HEX 为保护配置 0，另有未标定拒绝测试。','', '另外以 Unicorn 2.1.4 执行三种飞控固件中实际 ARM TIM1_Config 及 ST 库机器码，各覆盖 0x00/0x5A/0xA5/0xFF 四种初始栈和寄存器状态，12 个初始化检查均通过：RCR=0、计算更新周期=3000 us、中断已使能。见 timer_*_results.json。此项是寄存器仿真，尚未在修复后的实板上测量周期。','', '状态机、协议、蜂鸣器、驱动/PWM 桩、理想坐标与光照模型的结论不等于 MCU 固件运行或实机试飞。光流尺度、推力/PID、实际灯声及飞行表现待按说明验证。','','所有构建日志为 `*_build.log`，内含实际工具命令；`*_build.json` 包含全部编译输入哈希、固件哈希与向量；链接资源详情见 `*_memory.map`。逐用例日志见 `native/<suite>/results.log`。']
     (VERIFY/'构建与测试汇总.md').write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n')
     return cases,checks
 
@@ -127,7 +139,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--keep-builds',action='store_true',help='Preserve generated Output and _build folders')
     args=parser.parse_args()
-    builds=build_audit();tests=test_audit();originals=original_audit()
+    builds=build_audit();tests=test_audit();originals=original_audit();timers=timer_audit()
     overlay={p.relative_to(ROOT/'upgrade').as_posix() for p in (ROOT/'upgrade').rglob('*') if p.is_file()}
     assert overlay=={'flight/HAL/j_config.h','flight/HAL/j_nav.c','README_替换与回退.md'}
     parameters();diagnostic_archive();cases,checks=summary(builds,tests)
@@ -141,10 +153,12 @@ def main():
     dump(VERIFY/'源码变更清单.json',changed)
     if not args.keep_builds:
         for generated in [VERIFY/'_build',ROOT/'flight/Output',ROOT/'remote/Output']:safe_generated_remove(generated)
-    audit={'version':VERSION,'delivery_date':'2026-10-27','passed':True,'original_source_files_verified_unchanged':originals,
+    audit={'version':VERSION,'delivery_date':'2026-10-29','passed':True,'original_source_files_verified_unchanged':originals,
            'builds':[{'name':r['board']+'_'+r['variant'],'flash_bytes':r['flash_programmed_bytes'],
                       'ram_runtime_bytes':r['ram_allocated_bytes_including_stack_heap'],'warnings':r['warnings']} for r in builds],
            'new_compiler_warnings':0,'software_cases_passed':cases,'software_assertions_passed':checks,
+           'timer_machinecode_cases_passed':sum(len(r['cases']) for r in timers),
+           'timer_fix':'TIM1 time-base structure initialized and repetition counter explicitly zero; calculated update period 3 ms',
            'upgrade_overlay_files':sorted(overlay),'upgrade_calibrated_gate':0,'hardware_access':False,'flashed':False,'motors_run':False,
            'real_flight_verified':False,'source_firmware_match':True,'baseline_preserved':True,
            'bh1750_wiring':{'scl':'UART1/TX1/PA9','sda':'UART1/RX1/PA10','vcc':'3V3','gnd':'GND','addr':'GND'},

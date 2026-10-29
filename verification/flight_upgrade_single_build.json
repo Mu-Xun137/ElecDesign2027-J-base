@@ -18,7 +18,7 @@
     "CONFIG\\IIC_SOFTWARE.c": "6275d9e81e970dc5144b35c61b4084dc3330385439ef5c823f28febcc4ca910f",
     "CONFIG\\Spi.c": "98a7d0ba1367944c5585e161f6779c8870435b6f8d99b1cd43917be2409ce4cc",
     "CONFIG\\Spi.h": "31bdda565f896dff90fb0fd507a66784e12688f8b1c04f0d71551883b209f2bd",
-    "CONFIG\\TIM.c": "c4a273191931be6bfaac397468ce00c56e99ca0b20073b93c5daf4205ab34bf9",
+    "CONFIG\\TIM.c": "872b71c16b6597facb9e9fde3d958867d2990f83ccca0d9d5c806e5343b85191",
     "CONFIG\\TIM.h": "38819b778ca190e2b73c1117a6fd3ba107eb4a11beb4aea5ce725e3e120cc0f3",
     "CONFIG\\USART.c": "192a74187ac2bab2c25e7907e7fa8ccd0725ccc51ea67b8add1a40be5dbf4886",
     "CONFIG\\USART.h": "9f5dc2eead22e9d7f1e5e6c57cbe44b6b4f0b0ab80f8902e9bbfa8f44daf9871",
@@ -158,7 +158,7 @@
     "Lib\\src\\stm32f10x_usart.c": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
     "Lib\\src\\stm32f10x_wwdg.c": "1d51fbbe3da7731b2303408f00693b51dbf62226590b1264cbbf35be01aa90ea"
   },
-  "flash_programmed_bytes": 29732,
+  "flash_programmed_bytes": 29752,
   "flash_capacity_bytes": 65536,
   "ram_allocated_bytes_including_stack_heap": 6392,
   "ram_capacity_bytes": 20480,
@@ -175,19 +175,19 @@
     ]
   ],
   "ram_method": "highest allocated RAM end minus 0x20000000; includes decompressed RW gaps and retained stack/heap",
-  "flash_span_bytes": 48056,
+  "flash_span_bytes": 48068,
   "initial_sp": "0x200018f8",
   "reset_vector": "0x8000105",
   "calibration_page_reserved": true,
   "warnings": 3,
   "artifacts": {
     "flight_upgrade_single.hex": {
-      "bytes": 83699,
-      "sha256": "6f93017bde39b981dc046bd65863eb8426a178023724965ef26df7b2708d6e1f"
+      "bytes": 83765,
+      "sha256": "1b8ee106f170e272b4c5bffe3eca37a1670b6f8b651725d7af0e56346a552efe"
     },
     "flight_upgrade_single.axf": {
-      "bytes": 584300,
-      "sha256": "708bc0d7ca07ae547683054b6482741e11be33c4503214029c6f8c6344e98502"
+      "bytes": 584912,
+      "sha256": "cfdc3fa24c223f0456fde7e11b7da920db0e75b000908783441159feb4848e7d"
     }
   },
   "flashed": false,

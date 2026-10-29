@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "engine": "unicorn 2.1.4",
+  "axf": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0\\firmware\\upgrade_ab\\flight_upgrade_ab.axf",
+  "hex": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0\\firmware\\upgrade_ab\\flight_upgrade_ab.hex",
+  "axf_sha256": "56417c476215f595bcc6a1e6b444f4291df2b5abcaf2ba01f9ce01150bf74d9a",
+  "hex_sha256": "1fe4dbb56b816d36b90aa911158afcc7bf0ee8b5b58a649c26ba1e1bcc4dcdea",
+  "entry": "0x8009ff9",
+  "cases": [
+    {
+      "initial_stack_and_register_pattern": "0x0",
+      "psc": 719,
+      "arr": 299,
+      "rcr": 0,
+      "calculated_update_period_us": 3000,
+      "irq_enabled": true,
+      "passed": true
+    },
+    {
+      "initial_stack_and_register_pattern": "0x5a",
+      "psc": 719,
+      "arr": 299,
+      "rcr": 0,
+      "calculated_update_period_us": 3000,
+      "irq_enabled": true,
+      "passed": true
+    },
+    {
+      "initial_stack_and_register_pattern": "0xa5",
+      "psc": 719,
+      "arr": 299,
+      "rcr": 0,
+      "calculated_update_period_us": 3000,
+      "irq_enabled": true,
+      "passed": true
+    },
+    {
+      "initial_stack_and_register_pattern": "0xff",
+      "psc": 719,
+      "arr": 299,
+      "rcr": 0,
+      "calculated_update_period_us": 3000,
+      "irq_enabled": true,
+      "passed": true
+    }
+  ],
+  "hardware_access": false,
+  "flashed": false,
+  "scope": "Real ARM initialization code; register memory fixture, not physical timing or flight verification."
+}

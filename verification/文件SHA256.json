@@ -1,19 +1,23 @@
 {
-  "version": "J31-20261027-BH-PA9PA10",
+  "version": "J31-20261029-TIM1-RCR0",
   "algorithm": "SHA256",
   "self_excluded": true,
   "files": {
     ".git/COMMIT_EDITMSG": {
-      "bytes": 33,
-      "sha256": "f73a977fb0db0da68d4eb366e748890ef5c231703dd7ff640ee3bf0af3160a65"
+      "bytes": 55,
+      "sha256": "da785eb232bbd02ba4239117cd7fd685922f2fd0e6ba068fe14ddb606e4fd259"
     },
     ".git/config": {
-      "bytes": 313,
-      "sha256": "1c0f71fdc5f61efac48dc2b4565a0dc073e56c8cea255fd68c88818bc6100561"
+      "bytes": 351,
+      "sha256": "97dbbdae3fe87ef00e99a0da7caa57af508cb61a5b5df6b5de59ec9766b2460e"
     },
     ".git/description": {
       "bytes": 73,
       "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee"
+    },
+    ".git/FETCH_HEAD": {
+      "bytes": 110,
+      "sha256": "ee5665ed9c08e0aa54c08a7fb942023728479d36ea26a317b9d1e49cf8fdac62"
     },
     ".git/HEAD": {
       "bytes": 21,
@@ -76,60 +80,68 @@
       "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106"
     },
     ".git/index": {
-      "bytes": 66282,
-      "sha256": "13d00fb4d3722840e936fa30bff4c544168d67b22d097192f4ba0dad57951d6b"
+      "bytes": 125961,
+      "sha256": "68dc7a520bc9c08e76de984b56a70b0121b87ae5143c4b572b43edc90b3876f3"
     },
     ".git/info/exclude": {
       "bytes": 240,
       "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1"
     },
     ".git/info/refs": {
-      "bytes": 57,
-      "sha256": "92fda9ecfbb23720606934d2b2a0779b0b5ec3987f46192c6e00b5899ac215d8"
+      "bytes": 123,
+      "sha256": "c3d614dc43d3673b421bb4f7de73975f042360d860a6bd150db6e166933c70a8"
     },
     ".git/logs/HEAD": {
-      "bytes": 180,
-      "sha256": "cd100f545739e6ff4661bf8c25d05b44715016a135c72d913e0bf41b51171609"
+      "bytes": 372,
+      "sha256": "74eb15a8897dad5d13bfcfd98fd61bf6273032e5a6ea6b5edbcb88fb9d503ea3"
     },
     ".git/logs/refs/heads/main": {
-      "bytes": 180,
-      "sha256": "cd100f545739e6ff4661bf8c25d05b44715016a135c72d913e0bf41b51171609"
+      "bytes": 372,
+      "sha256": "74eb15a8897dad5d13bfcfd98fd61bf6273032e5a6ea6b5edbcb88fb9d503ea3"
     },
     ".git/logs/refs/remotes/origin/main": {
-      "bytes": 144,
-      "sha256": "9de81f2e7e2ed5c5bdddb509b7c7ea9f248ae2396f97589e1f0eeb167dd35c82"
+      "bytes": 288,
+      "sha256": "4b14c59e4a1b5fec719fa36dc5e5bd1b4db562db4912accaa456c81c0cd5fe71"
     },
     ".git/objects/info/packs": {
       "bytes": 54,
-      "sha256": "dc649af244f0276d9663966c68d9a6afd41417703bc70ec8387d86546e1e298c"
+      "sha256": "92017543cac9ad4eb45bef6fd27f5954a691310f2ed857a455e88091a4e5b82d"
     },
     ".git/objects/pack/multi-pack-index": {
-      "bytes": 19004,
-      "sha256": "1e3045b7ff941a9cb97d39867ae0fca75cfdd51031730277d3befc718c6b3a0e"
+      "bytes": 31016,
+      "sha256": "051e68ad0d79b55e5b083d8b2ac1b0236c7b454ec306f67c46cc71131c31bb26"
     },
-    ".git/objects/pack/pack-1c3c2233c5e3d0851a044338c3d944814dfdf7db.idx": {
-      "bytes": 18908,
-      "sha256": "2759b20e799a9cc5a2d77a9ec64abe37c8616b218fadd65de279b681264c5788"
+    ".git/objects/pack/pack-8ba7012f76a2b3a8fb35a32908647bb1d55a5a22.idx": {
+      "bytes": 30920,
+      "sha256": "a3e03736066acc9d8899f4b76ac394889b1eb0b90cf0161164f44aa88b61cb96"
     },
-    ".git/objects/pack/pack-1c3c2233c5e3d0851a044338c3d944814dfdf7db.pack": {
-      "bytes": 5838952,
-      "sha256": "b4faaa6d3dd45853f86021808041538a987a108a2b534ab0c8d84b9a6134dcdf"
+    ".git/objects/pack/pack-8ba7012f76a2b3a8fb35a32908647bb1d55a5a22.pack": {
+      "bytes": 9425465,
+      "sha256": "f913cd5a9e9c5ba8281c1f5c797073474c61bccb653adf53e11f314599435330"
     },
-    ".git/objects/pack/pack-1c3c2233c5e3d0851a044338c3d944814dfdf7db.rev": {
-      "bytes": 2600,
-      "sha256": "800b4523f44261bb7ba4b6812bc692e55e0ac76defa765bd27531343aee1d821"
+    ".git/objects/pack/pack-8ba7012f76a2b3a8fb35a32908647bb1d55a5a22.rev": {
+      "bytes": 4316,
+      "sha256": "74934805990c5bf2f28c6321166ee62b911535ab74a2601b1fa24c431d2e7d83"
+    },
+    ".git/ORIG_HEAD": {
+      "bytes": 41,
+      "sha256": "52f6a059d07e904616f96dc8b47a6f2f376fccd3edc15c06b8ebafac98049fe6"
     },
     ".git/refs/heads/main": {
       "bytes": 41,
-      "sha256": "48551a6cc54ba0cdab72ea21e51fe5adef7f4cdd5bd23aea871feceb1532e6e0"
+      "sha256": "52f6a059d07e904616f96dc8b47a6f2f376fccd3edc15c06b8ebafac98049fe6"
     },
     ".git/refs/remotes/origin/main": {
       "bytes": 41,
-      "sha256": "48551a6cc54ba0cdab72ea21e51fe5adef7f4cdd5bd23aea871feceb1532e6e0"
+      "sha256": "52f6a059d07e904616f96dc8b47a6f2f376fccd3edc15c06b8ebafac98049fe6"
     },
     "docs/BH1750独立总线接线与验证.md": {
       "bytes": 2459,
       "sha256": "ce5e4608f1ff43db6cdeeac8c6b553438a8b1ddb643baa70c5b382340e842f84"
+    },
+    "docs/TIM1控制超时修复_20261029.md": {
+      "bytes": 3394,
+      "sha256": "f0fdbfab8b533a5a505da6bc1dc9dc0156848c12f527cb9bb783bc386aadca39"
     },
     "docs/使用与台架验收.md": {
       "bytes": 7903,
@@ -148,16 +160,16 @@
       "sha256": "f01769302117ffe430e3f33ebe3dcb79d7ace21b4834367e2c3a388ae419ee1a"
     },
     "docs/验证与限制.md": {
-      "bytes": 5246,
-      "sha256": "e73510bf77ddb760bba63300080ca845b01f1072efe215ff8e8391164991ec4e"
+      "bytes": 5614,
+      "sha256": "5698ad8b57cb9f84a334bfbc18df262198de9c53124e913d314d72adadefe55f"
     },
     "firmware/basic/flight_basic.axf": {
-      "bytes": 562636,
-      "sha256": "4c05cd847de9ee597425ff1c0639b815da6c21903c01a0c3e25872ac0bf0b373"
+      "bytes": 563220,
+      "sha256": "0b7a9eb30f1887fb22f8411a71adba49f00a3fe4e392609e00bb90e156d3d179"
     },
     "firmware/basic/flight_basic.hex": {
-      "bytes": 79911,
-      "sha256": "8308b2d01226f224e9bcb685652db542d246a437ac1b50e7c2945d7ad46e40dc"
+      "bytes": 79993,
+      "sha256": "28d730419003c40ecfff2525fb2813fdfbbde7d4b548edb5a7a28dfdca53633d"
     },
     "firmware/basic/remote_basic.axf": {
       "bytes": 355944,
@@ -168,20 +180,20 @@
       "sha256": "7157eab28307031259c81f5a775baea7d8db8ad3649c3ba7466a5ec1a7604113"
     },
     "firmware/upgrade_ab/flight_upgrade_ab.axf": {
-      "bytes": 583104,
-      "sha256": "28e4e91420fefd40aa4375c8bc77075e6760b39d576887ad6d26d919c2c3de0d"
+      "bytes": 583708,
+      "sha256": "56417c476215f595bcc6a1e6b444f4291df2b5abcaf2ba01f9ce01150bf74d9a"
     },
     "firmware/upgrade_ab/flight_upgrade_ab.hex": {
-      "bytes": 83887,
-      "sha256": "6d2f9285e9009f60e51f0eac7f89800bd5d0b86c6dd0de7de6226d4bf607fb4e"
+      "bytes": 83932,
+      "sha256": "1fe4dbb56b816d36b90aa911158afcc7bf0ee8b5b58a649c26ba1e1bcc4dcdea"
     },
     "firmware/upgrade_single/flight_upgrade_single.axf": {
-      "bytes": 584300,
-      "sha256": "708bc0d7ca07ae547683054b6482741e11be33c4503214029c6f8c6344e98502"
+      "bytes": 584912,
+      "sha256": "cfdc3fa24c223f0456fde7e11b7da920db0e75b000908783441159feb4848e7d"
     },
     "firmware/upgrade_single/flight_upgrade_single.hex": {
-      "bytes": 83699,
-      "sha256": "6f93017bde39b981dc046bd65863eb8426a178023724965ef26df7b2708d6e1f"
+      "bytes": 83765,
+      "sha256": "1b8ee106f170e272b4c5bffe3eca37a1670b6f8b651725d7af0e56346a552efe"
     },
     "flight/CONFIG/ADC.c": {
       "bytes": 2883,
@@ -228,8 +240,8 @@
       "sha256": "31bdda565f896dff90fb0fd507a66784e12688f8b1c04f0d71551883b209f2bd"
     },
     "flight/CONFIG/TIM.c": {
-      "bytes": 5437,
-      "sha256": "c4a273191931be6bfaac397468ce00c56e99ca0b20073b93c5daf4205ab34bf9"
+      "bytes": 5618,
+      "sha256": "872b71c16b6597facb9e9fde3d958867d2990f83ccca0d9d5c806e5343b85191"
     },
     "flight/CONFIG/TIM.h": {
       "bytes": 164,
@@ -384,8 +396,8 @@
       "sha256": "cc3e8ad44adeb438144e690d0ffa740be791b16ce7d8373622536a6d3e8657e9"
     },
     "flight/JLinkLog.txt": {
-      "bytes": 263300,
-      "sha256": "2c4cf19ed2b716404737ee38d00905cc412bab95872209539d57dfe0645a0a6f"
+      "bytes": 230936,
+      "sha256": "01cd0c509f15b92697470128fffaaeacce31fd73d2643ab3d0bda33a74fd580e"
     },
     "flight/JLinkSettings.ini": {
       "bytes": 803,
@@ -576,8 +588,8 @@
       "sha256": "1d51fbbe3da7731b2303408f00693b51dbf62226590b1264cbbf35be01aa90ea"
     },
     "flight/List/flight_basic.map": {
-      "bytes": 276286,
-      "sha256": "ec6ef09fb9febb35590b15f40cf3bec68a44c706b1915d430e72d28a9ba5c746"
+      "bytes": 283648,
+      "sha256": "4c98fccd984c549f8c982f921338661d2f13e18a3912b094dfe9eb33557d837b"
     },
     "flight/List/startup_stm32f10x_md.lst": {
       "bytes": 40825,
@@ -625,11 +637,11 @@
     },
     "flight/mini.uvguix.jxgm": {
       "bytes": 90995,
-      "sha256": "4287cffb31cfd2cf70dd055c2df388954f978ddf0220e2a8a8b20f58310e811a"
+      "sha256": "b77a8f502483adfcd75db6626ebe571fca9eb924f9901596c746a6c73c02817e"
     },
     "flight/mini.uvoptx": {
-      "bytes": 34377,
-      "sha256": "b761ca25355be4f6db9976942e6b8bf1a27e43867bfd7b985ff17e50935f096e"
+      "bytes": 34758,
+      "sha256": "28572c4353a3109ebe49289d24ffa389e431da1b98a119593f66ba6898db28a5"
     },
     "flight/mini.uvprojx": {
       "bytes": 28084,
@@ -820,8 +832,8 @@
       "sha256": "3125ddbb739a7bef6ae22e5b6fa97eb06c0db3e180432ed1de9468b36c7c0e3d"
     },
     "README.md": {
-      "bytes": 3327,
-      "sha256": "d6ae96903244a5a6e9386b7d43c42eca441f05f7117d52a29409b370ce9e0159"
+      "bytes": 3769,
+      "sha256": "71670a2f24ac257039bf15a5a7cec88c6fe463ef197136ba8a81828e68993f58"
     },
     "remote/APP/main.c": {
       "bytes": 1352,
@@ -1260,44 +1272,44 @@
       "sha256": "96ec493dade539d71749f9b1cf338ad171c792f51acbeb2301dfc7d184e0ea15"
     },
     "verification/finalize.py": {
-      "bytes": 11797,
-      "sha256": "7e05b4cc7be97bd0ace7644ae76ba3afb3ac36a3233ec1bb0a0577b3201964ce"
+      "bytes": 12981,
+      "sha256": "b91bbfa448090cedd3867529114947452ab652ee0962c782187fa823f5bb3ccb"
     },
     "verification/flight_basic_build.json": {
       "bytes": 15943,
-      "sha256": "778c7234099b16518b392c92ae1611b4908c1c95dccc0e860a1e6f00fd9ef2e4"
+      "sha256": "7491d9c3342ace338546052b5f975bd8a45024872c47209a5886df6e7520459c"
     },
     "verification/flight_basic_build.log": {
       "bytes": 27185,
       "sha256": "e5159bf8744977e50927f7754e8f96f335dc7e376825b19b6f34ed61d18dc0fc"
     },
     "verification/flight_basic_memory.map": {
-      "bytes": 292041,
-      "sha256": "ddf6320f76947469ed2794a63ce8a62e99a9eb370bed7b850fc03a664a94cec2"
+      "bytes": 292465,
+      "sha256": "a4fe6b3ca4d233541a8112255c58bbd8022e37f034ab0bdfba0e6c86db0c900b"
     },
     "verification/flight_upgrade_ab_build.json": {
       "bytes": 15992,
-      "sha256": "e2f6704f567f53bb1b2de0b7943fc1f81eb837ac2f338ec7adfb217e77a16a03"
+      "sha256": "bca2e913dfa0c72418cc584f2a00d31d4f9b5f8e18ae7631454cdd3ea6eaba13"
     },
     "verification/flight_upgrade_ab_build.log": {
       "bytes": 27205,
       "sha256": "e4abd9f5a1b4b06bbef0be2268d393c577bc4742d144f2b63b83693edfc55529"
     },
     "verification/flight_upgrade_ab_memory.map": {
-      "bytes": 299789,
-      "sha256": "2b3d3b7255e4de5677ae53d59e4b3b644ac0fa9d109867fe64d7d47ef31bb505"
+      "bytes": 299933,
+      "sha256": "829cf034183a36a652b543877e2e7ca9e2ae5b687ec3a0a208e0a21cf30d83ac"
     },
     "verification/flight_upgrade_single_build.json": {
       "bytes": 16008,
-      "sha256": "a4bcc1af258dbdd042cba7c0cf0eae88fed985ed6d597d860df793719e8f5f79"
+      "sha256": "8186316e826094a4a79b6fc5e3bcd2851b5d3e39112c546c75a98f15ccfa38d4"
     },
     "verification/flight_upgrade_single_build.log": {
       "bytes": 27221,
       "sha256": "a744b85fdf419bd34467bd0a2612f7f6602426ed3ef0638ce4dc017df6d694fb"
     },
     "verification/flight_upgrade_single_memory.map": {
-      "bytes": 299522,
-      "sha256": "77790d7dd81e0c37097fc9c731983f006f49634548b1a37a43906dce2ca54ffb"
+      "bytes": 299806,
+      "sha256": "8c71978cb76cc323298195c6561267351a94b126e6e2fcabc207d34ad3d5a44c"
     },
     "verification/J题_原文提取.txt": {
       "bytes": 6046,
@@ -1455,6 +1467,18 @@
       "bytes": 11640,
       "sha256": "fbacb68930f7588033355fc52ab99152869827cf57c23624d6acf7ed304b1e0b"
     },
+    "verification/timer_basic_results.json": {
+      "bytes": 1537,
+      "sha256": "b985cb1ad28b08280f752da6208b777a895cc590af279141e2ea6fe96ed84a69"
+    },
+    "verification/timer_upgrade_ab_results.json": {
+      "bytes": 1557,
+      "sha256": "79023e695eefaeaae030506e520aeb8873265962b5480b8d47e6c49a3984bde6"
+    },
+    "verification/timer_upgrade_single_results.json": {
+      "bytes": 1573,
+      "sha256": "9a1d66749fd5eb220c3d8d96d9fd6c06e63e57f3d3cb89da461386bef9938484"
+    },
     "verification/toolchain_probe/observed_compile.log": {
       "bytes": 707,
       "sha256": "f407776bbe98173458e59bfaca499a72941956bf95566883a424f0b29a5a0067"
@@ -1479,17 +1503,21 @@
       "bytes": 4105,
       "sha256": "b5a862ed19e593907422756daf0a4d626e010614204742fc28c831f3f9e25858"
     },
+    "verification/verify_timer.py": {
+      "bytes": 5348,
+      "sha256": "656298c82c5548fe89856c48d88756ebe92857b7c04ee0ba72517ab6202e3244"
+    },
     "verification/最终核验.json": {
-      "bytes": 1603,
-      "sha256": "6c908998c5b7441dbdf51d253aa634db0ec4a5fee5a29bb7a18c3b87390eaf0e"
+      "bytes": 1767,
+      "sha256": "b12b6a3d684f64481188bfd90cd019e5bcc7b983b7af2fcb02657e7d225f5257"
     },
     "verification/构建与测试汇总.md": {
-      "bytes": 1718,
-      "sha256": "b0a645aaaa247c7609bc1e3523905f1e5b54afe364344f997da9a062a6ff47c8"
+      "bytes": 2068,
+      "sha256": "a26e161e6690c704f4417664b03780c07b123995ab45295a2e614ddd64ef1ee6"
     },
     "verification/源码变更清单.json": {
-      "bytes": 10280,
-      "sha256": "c8f1a77bd0dc451f2bb6ddfd964cbd91228ca07b17b270214305c708feae059b"
+      "bytes": 10431,
+      "sha256": "c86f54a5c45fac4a517168cbc6c800d90b118bd8a6472bd0dd85e06b22f528ac"
     },
     "verification/需求核对.md": {
       "bytes": 5181,

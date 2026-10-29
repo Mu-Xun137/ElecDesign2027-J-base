@@ -2,7 +2,7 @@
   {
     "file": "flight/JLinkLog.txt",
     "status": "modified",
-    "sha256": "2c4cf19ed2b716404737ee38d00905cc412bab95872209539d57dfe0645a0a6f"
+    "sha256": "01cd0c509f15b92697470128fffaaeacce31fd73d2643ab3d0bda33a74fd580e"
   },
   {
     "file": "flight/JLinkSettings.ini",
@@ -17,12 +17,12 @@
   {
     "file": "flight/mini.uvguix.jxgm",
     "status": "added",
-    "sha256": "4287cffb31cfd2cf70dd055c2df388954f978ddf0220e2a8a8b20f58310e811a"
+    "sha256": "b77a8f502483adfcd75db6626ebe571fca9eb924f9901596c746a6c73c02817e"
   },
   {
     "file": "flight/mini.uvoptx",
     "status": "added",
-    "sha256": "b761ca25355be4f6db9976942e6b8bf1a27e43867bfd7b985ff17e50935f096e"
+    "sha256": "28572c4353a3109ebe49289d24ffa389e431da1b98a119593f66ba6898db28a5"
   },
   {
     "file": "flight/mini.uvprojx",
@@ -33,6 +33,11 @@
     "file": "flight/CONFIG/IIC_SOFTWARE.c",
     "status": "modified",
     "sha256": "6275d9e81e970dc5144b35c61b4084dc3330385439ef5c823f28febcc4ca910f"
+  },
+  {
+    "file": "flight/CONFIG/TIM.c",
+    "status": "modified",
+    "sha256": "872b71c16b6597facb9e9fde3d958867d2990f83ccca0d9d5c806e5343b85191"
   },
   {
     "file": "flight/DebugConfig/Target_1_STM32F103C8_1.0.0.dbgconf",
@@ -167,7 +172,7 @@
   {
     "file": "flight/List/flight_basic.map",
     "status": "added",
-    "sha256": "ec6ef09fb9febb35590b15f40cf3bec68a44c706b1915d430e72d28a9ba5c746"
+    "sha256": "4c98fccd984c549f8c982f921338661d2f13e18a3912b094dfe9eb33557d837b"
   },
   {
     "file": "flight/List/startup_stm32f10x_md.lst",

@@ -1,12 +1,12 @@
 {
-  "version": "J31-20261027-BH-PA9PA10",
-  "delivery_date": "2026-10-27",
+  "version": "J31-20261029-TIM1-RCR0",
+  "delivery_date": "2026-10-29",
   "passed": true,
   "original_source_files_verified_unchanged": 222,
   "builds": [
     {
       "name": "flight_basic",
-      "flash_bytes": 28384,
+      "flash_bytes": 28412,
       "ram_runtime_bytes": 6392,
       "warnings": 3
     },
@@ -18,13 +18,13 @@
     },
     {
       "name": "flight_upgrade_single",
-      "flash_bytes": 29732,
+      "flash_bytes": 29752,
       "ram_runtime_bytes": 6392,
       "warnings": 3
     },
     {
       "name": "flight_upgrade_ab",
-      "flash_bytes": 29800,
+      "flash_bytes": 29816,
       "ram_runtime_bytes": 6392,
       "warnings": 3
     }
@@ -32,6 +32,8 @@
   "new_compiler_warnings": 0,
   "software_cases_passed": 93,
   "software_assertions_passed": 101514,
+  "timer_machinecode_cases_passed": 12,
+  "timer_fix": "TIM1 time-base structure initialized and repetition counter explicitly zero; calculated update period 3 ms",
   "upgrade_overlay_files": [
     "README_替换与回退.md",
     "flight/HAL/j_config.h",
