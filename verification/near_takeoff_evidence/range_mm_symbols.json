@@ -1,0 +1,29 @@
+{
+  "version": "J31-20261029-RANGE-MM",
+  "project": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_测距单位修复版_20261029",
+  "axf": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_测距单位修复版_20261029\\firmware\\basic\\flight_basic.axf",
+  "hex": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_测距单位修复版_20261029\\firmware\\basic\\flight_basic.hex",
+  "axf_sha256": "e2c52f706c5101bd1abf0ede4fb35625c1b94f345e508fdd62ca1bf2780f4373",
+  "hex_sha256": "35c6b31566c4297d8861e9480f64cf27706c52017a30807333cc307eb8fe0c50",
+  "symbols": {
+    "SysTick_count": 536870940,
+    "previous_us": 536870936,
+    "j_flight": 536872600,
+    "j_sensor": 536872936,
+    "Remote": 536871520,
+    "Angle": 536871508,
+    "MPU6050": 536871496,
+    "j_deadline_fault": 536871448,
+    "j_last_motor_ms": 536871452,
+    "j_max_isr_us": 536871464,
+    "j_deadline_misses": 536871468,
+    "j_iic_errors": 536870960,
+    "j_bh_i2c_errors": 536871488,
+    "j_radio_ready": 536870988,
+    "j_radio_timeouts": 536870996,
+    "rx": 536873076,
+    "command": 536873096,
+    "telemetry_seq": 536871450
+  },
+  "ram_base": 536870912
+}

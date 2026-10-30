@@ -29,7 +29,8 @@ extern void SysTick_Handler(void),TIM1_UP_IRQHandler(void);
 static unsigned checks,cases,range_reads,bh_reads,command_count,bh_bus_inits;
 static const char *current;
 static uint8_t imu_bad,lc_bad,bh_bad,tim_pending;
-static uint16_t range_cm=80,bh_raw=480;
+static uint8_t range_quality=80;
+static uint16_t range_raw_mm=800,bh_raw=480;
 static uint8_t commands[32],reply[32],reply_count;
 static uint32_t session_seed=0x55667788U;
 #define CHECK(x) do { ++checks; if(!(x)) { printf("FAIL %s:%d: %s\n",current,__LINE__,#x); exit(2); } } while(0)
@@ -49,7 +50,7 @@ int8_t IIC_read_Bytes(uint8_t a,uint8_t r,uint8_t *b,uint8_t n)
     memset(b,0,n);
     if(a==0xD0 && r==0x3B && n==14) { if(imu_bad)return 1; b[4]=0x20;return 0; }
     if(a==0xD0 && r==0x75 && n==1) { if(imu_bad)return 1;b[0]=0x68;return 0; }
-    if(a==0xC4 && r==0x33 && n==5) { ++range_reads;if(lc_bad)return 1;b[0]=(uint8_t)(range_cm>>8);b[1]=(uint8_t)range_cm;b[4]=80;return 0; }
+    if(a==0xC4 && r==0x33 && n==5) { ++range_reads;if(lc_bad)return 1;b[0]=(uint8_t)(range_raw_mm>>8);b[1]=(uint8_t)range_raw_mm;b[4]=range_quality;return 0; }
     return 1;
 }
 void JBHI2C_Init(void) { ++bh_bus_inits; }
@@ -64,7 +65,7 @@ void JRadio_Poll(uint32_t t) { (void)t; }
 uint8_t JRadio_StartTx(uint8_t *p,uint32_t t) { (void)t;memcpy(reply,p,32);++reply_count;return 1; }
 static void fixture(void)
 {
-    SysTick_count=1000;imu_bad=lc_bad=bh_bad=0;range_cm=80;bh_raw=480;
+    SysTick_count=1000;imu_bad=lc_bad=bh_bad=0;range_raw_mm=800;range_quality=80;bh_raw=480;
     memset(&MPU6050,0,sizeof(MPU6050));memset(&Angle,0,sizeof(Angle));memset((void *)&ALL_flag,0,sizeof(ALL_flag));
     memset(MpuOffset,0,12);j_mpu_ready=1;j_mpu_last_ms=SysTick_count;
     j_deadline_fault=0;range_reads=bh_reads=command_count=reply_count=bh_bus_inits=0;
@@ -80,6 +81,53 @@ static JControlPacket control(void)
 }
 static void deliver(JControlPacket *c)
 { uint8_t p[32];JControl_Encode(p,c);JPlatform_OnControl(p,SysTick_count); }
+static void platform_advance(JControlPacket *c,unsigned ms)
+{
+    unsigned n;
+    for(n=0;n<ms;n+=3) {
+        SysTick_count+=3;
+        if((n/3)%7==0) { ++c->seq;deliver(c); }
+        JPlatform_ControlTick(0.003f,(uint8_t)((n/3)%2==0));
+    }
+}
+static void start_near_platform(JControlPacket *c)
+{
+    fixture();range_raw_mm=0;range_quality=0;*c=control();deliver(c);
+    platform_advance(c,1251);CHECK(j_flight.ambient_count==J_AMBIENT_SAMPLES);
+    c->channel[2]=1819;platform_advance(c,90);
+    c->channel[2]=1000;platform_advance(c,3);
+    CHECK(j_flight.armed && !j_flight.motors_on && j_flight.launch_available);
+    ++c->key_count[2];platform_advance(c,3);
+    CHECK(j_flight.near_active && j_flight.motors_on && j_flight.fault==J_OK);
+}
+static void real_near_start_status_and_timeout_zero_pwm(void)
+{
+    JControlPacket c;JStatusPacket s;uint32_t started;float held;
+    start_near_platform(&c);started=j_flight.near_start_ms;
+    platform_advance(&c,600);
+    CHECK(!j_sensor.value.range_ok && j_sensor.value.module_ok && j_sensor.value.module_ms!=0);
+    CHECK(j_flight.common>0 && j_flight.common<=J_NEAR_THR_PWM && TIM2->CCR1>0);
+    CHECK(!ALL_flag.height_lock && !ALL_flag.flow_control);
+    ++c.key_count[3];platform_advance(&c,3);held=j_flight.common;
+    platform_advance(&c,30);CHECK(j_flight.near_align && j_flight.common==held);
+    SysTick_count+=3;JPlatform_RadioPoll();
+    CHECK(JStatus_Decode(reply,&s) && s.mode==J_C3_AUTO && s.phase==J_ADJUST);
+    CHECK((s.flags&J_STATUS_ALIGN) && !(s.flags&J_STATUS_FAULT) && s.align==J_ALIGN_UP);
+    CHECK(!(s.sensors&1U));
+    ++c.key_count[3];platform_advance(&c,3);
+    CHECK(!j_flight.near_align && j_flight.near_start_ms==started);
+    while(j_flight.armed && (uint32_t)(SysTick_count-started)<J_NEAR_TIMEOUT_MS)platform_advance(&c,3);
+    CHECK(!j_flight.armed && j_flight.fault==J_ERR_TAKEOFF_GROUND && !j_flight.near_active);
+    CHECK(!(TIM2->CCR1|TIM2->CCR2|TIM2->CCR3|TIM2->CCR4));
+}
+static void real_near_c2_clears_pwm_before_next_tick(void)
+{
+    JControlPacket c;start_near_platform(&c);platform_advance(&c,600);
+    CHECK(TIM2->CCR1||TIM2->CCR2||TIM2->CCR3||TIM2->CCR4);
+    ++c.seq;++c.key_count[1];deliver(&c);
+    CHECK(!j_flight.armed && !j_flight.near_active && j_flight.fault==J_ERR_ESTOP);
+    CHECK(!(TIM2->CCR1|TIM2->CCR2|TIM2->CCR3|TIM2->CCR4));
+}
 static void pwm_mixer_and_lock(void)
 {
     fixture();j_flight.armed=j_flight.motors_on=1;j_flight.common=J_ManualThrust(1667);
@@ -110,7 +158,32 @@ static void real_lc08_driver_units_and_no_silent_mode_exit(void)
     fixture();flow_get_data();CHECK(VL53L01_high==800&&j_sensor.value.height_mm==800);
     ALL_flag.height_lock=ALL_flag.flow_control=1;lc_bad=1;flow_get_data();
     CHECK(!j_sensor.value.range_ok&&ALL_flag.height_lock&&ALL_flag.flow_control&&VL53L01_high==800);
-    lc_bad=0;range_cm=0;flow_get_data();CHECK(!j_sensor.value.range_ok);
+    lc_bad=0;range_raw_mm=0;SysTick_count+=6;flow_get_data();CHECK(!j_sensor.value.range_ok);
+    CHECK(j_sensor.value.module_ok && j_sensor.value.module_ms==SysTick_count && j_sensor.value.range_ms==1000);
+    lc_bad=1;SysTick_count+=6;flow_get_data();
+    CHECK(!j_sensor.value.module_ok && j_sensor.value.module_ms==SysTick_count-6);
+}
+static void measured_millimetre_frames_and_airborne_c1(void)
+{
+    JControlPacket c=control();unsigned k;
+    fixture();range_raw_mm=800;
+    for(k=0;k<8;++k) { SysTick_count+=6;flow_get_data(); }
+    deliver(&c);
+    j_flight.armed=j_flight.motors_on=1;j_flight.mode=J_MANUAL;
+    j_flight.common=J_ManualThrust(1667);
+    ++c.seq;++c.key_count[0];deliver(&c);SysTick_count+=3;
+    JPlatform_ControlTick(0.003f,0);
+    if(j_flight.mode!=J_C1_HOLD || j_flight.fault!=J_OK)
+        printf("C1 raw=800: mode=%u fault=%u range_ok=%u flow_ok=%u height=%g\n",
+               (unsigned)j_flight.mode,(unsigned)j_flight.fault,
+               j_sensor.value.range_ok,j_sensor.value.flow_ok,(double)j_sensor.value.height_mm);
+    CHECK(j_flight.mode==J_C1_HOLD && j_flight.fault==J_OK);
+    CHECK(j_flight.goal_mm==800 && j_flight.height_target_mm==800);
+    CHECK(j_sensor.value.range_ok && j_sensor.value.velocity_ok && j_sensor.value.flow_ok);
+    CHECK(j_sensor.value.height_mm==800 && J_Abs(j_sensor.value.vz_mm_s)<0.01f);
+    fixture();range_raw_mm=294;flow_get_data();
+    /* Real board at about 300 mm returned 294; the old firmware displayed 2940. */
+    CHECK(j_sensor.value.range_ok && j_sensor.value.height_mm==294);
 }
 static void real_bh_driver_distinct_one_shot_samples(void)
 {
@@ -176,10 +249,11 @@ static void actual_systick_and_scheduler_have_one_clock_owner(void)
 static void actual_deadline_handler_clears_pwm(void)
 {
     unsigned k;fixture();SysTick_count=0;j_last_motor_ms=0;j_flight.armed=j_flight.motors_on=1;
+    j_flight.mode=J_C3_AUTO;j_flight.phase=J_ADJUST;j_flight.near_active=1;
     TIM2->CCR1=TIM2->CCR2=TIM2->CCR3=TIM2->CCR4=500;
     for(k=0;k<26;++k)SysTick_Handler();CHECK(j_deadline_fault&&TIM2->CCR1==0&&TIM2->CCR4==0);
     MotorControl();CHECK(TIM2->CCR1==0);JPlatform_ControlTick(0.003f,0);
-    CHECK(!j_flight.armed&&j_flight.fault==J_ERR_DEADLINE);
+    CHECK(!j_flight.armed&&j_flight.fault==J_ERR_DEADLINE&&!j_flight.near_active);
 }
 static void telemetry_turnaround_delay_not_unsigned_underflow(void)
 {
@@ -190,6 +264,8 @@ static void telemetry_turnaround_delay_not_unsigned_underflow(void)
 }
 int main(void)
 {
+    RUN(measured_millimetre_frames_and_airborne_c1);
+    RUN(real_near_start_status_and_timeout_zero_pwm);RUN(real_near_c2_clears_pwm_before_next_tick);
     RUN(pwm_mixer_and_lock);RUN(c2_real_parser_clears_pwm_before_control_tick);
     RUN(actual_led_channel_mapping_and_low_polarity);RUN(real_lc08_driver_units_and_no_silent_mode_exit);
     RUN(real_bh_driver_distinct_one_shot_samples);RUN(bh_saturation_io_failure_and_retry);

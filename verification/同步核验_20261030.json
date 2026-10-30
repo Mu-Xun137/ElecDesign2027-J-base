@@ -1,0 +1,705 @@
+{
+  "passed": true,
+  "sync_date": "2026-10-30",
+  "version": "J31-20261029-NEAR-LIFTOFF",
+  "source": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_近地起飞修复版_20261029",
+  "target": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0",
+  "archive_generated": false,
+  "existing_archives_verified_unchanged": {
+    "Remote and mini 5.0 (2).zip": {
+      "bytes": 41255222,
+      "sha256": "6460f794b9b5b1bb09657cb277c18a1a197ba59476b3aabe03d93a6dad5cea7a"
+    },
+    "Remote and mini 5.0.zip": {
+      "bytes": 11285413,
+      "sha256": "82efd146cb95726bf20e7b5d728ff67891a032d5a94de00a8d8c7533e9b724a1"
+    },
+    "Remote and mini 5.0.zip.sha256": {
+      "bytes": 90,
+      "sha256": "7c75726852386d25ce6b3c2404a68552bf2055a7775e21cf0165bc7607b59761"
+    },
+    "Remote and mini 5.0_油门调整版_20261029.zip": {
+      "bytes": 11235204,
+      "sha256": "2f19a543e95e8ab9043f29b005652a1a3f2886cdb834793be0fc0f7f71389a77"
+    },
+    "Remote and mini 5.0_油门调整版_20261029.zip.sha256": {
+      "bytes": 115,
+      "sha256": "ab9611404e1765f24421e5756cd6abbe0f7ee794f61a0dc4e1f2e52d9e93db12"
+    },
+    "Remote and mini 5.0_测距单位修复版_20261029.zip": {
+      "bytes": 12182251,
+      "sha256": "8e6ecd9c8e1f895ba8d5b41d9b9f61cf0470390ccebce9d024296d7d733d1bf8"
+    },
+    "Remote and mini 5.0_测距单位修复版_20261029.zip.sha256": {
+      "bytes": 121,
+      "sha256": "4a48e4655bad8196ca812e27ef6ebba619e7de05eba041ba050c8f67d3b495bc"
+    },
+    "Remote and mini 5.0_近地起飞修复版_20261029.zip": {
+      "bytes": 1817160,
+      "sha256": "5d3fde98d56737b76129f5527ac554cc2f650dfc232871107f5d9d54b0a3db4e"
+    },
+    "Remote and mini 5.0_近地起飞修复版_20261029.zip.sha256": {
+      "bytes": 121,
+      "sha256": "8a52baaaf749b836498b72d64cd4e80667be5d4893472c5fc463426bf57e4757"
+    }
+  },
+  "source_release_files_verified": 399,
+  "source_release_unchanged": true,
+  "git_and_keil_settings_preserved": true,
+  "protected_files_checked": 91,
+  "all_firmware_source_and_project_files_match_source": true,
+  "all_released_firmware_files_match_source": true,
+  "keil_download_outputs_match_release": true,
+  "keil_output_files_synced": [
+    "flight/Output/flight_basic.hex",
+    "flight/Output/flight_basic.axf",
+    "flight/Output/flight_basic.map",
+    "flight/List/flight_basic.map",
+    "remote/Output/remote_basic.hex",
+    "remote/Output/remote_basic.axf",
+    "remote/Output/remote_basic.map",
+    "remote/Listings/remote_basic.map"
+  ],
+  "build_input_hash_audits_passed": 4,
+  "recorded_software_cases": 107,
+  "recorded_software_assertions": 102082,
+  "recorded_arm_machinecode_cases": 48,
+  "reports_revalidated_by_hash": true,
+  "tests_rerun": false,
+  "hardware_access": false,
+  "flashed": false,
+  "factory_baseline_files_verified_unchanged": 222,
+  "overwritten_files_backup": "E:\\Inside School\\Electric Design\\Inside School\\diagnostics_20261030\\sync_near_to_main\\before",
+  "copied_or_adapted_operations": [
+    {
+      "file": "docs/使用与台架验收.md",
+      "before_sha256": "af7987a9f43fa0a0667f7e6133a3646ceed38f2e0b70a15fb4dfb352e613a285",
+      "after_sha256": "e3bcb7b82e9104fe01a0cc325b1a2d4c43fd6212705b1be5c5028eac90f49ff0"
+    },
+    {
+      "file": "docs/参数与标定.md",
+      "before_sha256": "b3ca5370cd1aa8333c0eaaf85d4db6d1e889c6ef9fe16e8822c4feeb255b6b64",
+      "after_sha256": "bbc1081fafb8e25359704b0b80553b11a725145c7371c0abcd8e21d938f0be7f"
+    },
+    {
+      "file": "docs/控制与协议说明.md",
+      "before_sha256": "8252427fddbd29494d39a07a08ae3ab87093861d4acf352260aec2a93323a724",
+      "after_sha256": "a61995883d40b19eafdc72814c91e9d6337c9786be948a7c446c7fbc82c7b2e3"
+    },
+    {
+      "file": "docs/测距单位错误定位与修复_20261029.md",
+      "before_sha256": null,
+      "after_sha256": "6649f0ba090a994c95faac42ac469eefdd0be5e10459adc63447b1bf34a877ea"
+    },
+    {
+      "file": "docs/近地起飞阶段与验证_20261029.md",
+      "before_sha256": null,
+      "after_sha256": "906319ca4a18763ed809987365de9416617048c7c99aa1f5920312a0ee1322b6"
+    },
+    {
+      "file": "docs/集中参数完整表.md",
+      "before_sha256": "f01769302117ffe430e3f33ebe3dcb79d7ace21b4834367e2c3a388ae419ee1a",
+      "after_sha256": "ac21b62ddd8f3847a49ca2c9430b04e6a5138de136c8a36d609f9a8f6bdf03ed"
+    },
+    {
+      "file": "docs/验证与限制.md",
+      "before_sha256": "5698ad8b57cb9f84a334bfbc18df262198de9c53124e913d314d72adadefe55f",
+      "after_sha256": "caac9e6c0a7be17627b64867f86fec4cd45f5e1a96ff763cfb0032f019961e60"
+    },
+    {
+      "file": "firmware/basic/flight_basic.axf",
+      "before_sha256": "0b7a9eb30f1887fb22f8411a71adba49f00a3fe4e392609e00bb90e156d3d179",
+      "after_sha256": "7d4cca536bbfae268c97ef0194b71957715f25ee3d17d4e7a048c77e9dc2ab01"
+    },
+    {
+      "file": "firmware/basic/flight_basic.hex",
+      "before_sha256": "28d730419003c40ecfff2525fb2813fdfbbde7d4b548edb5a7a28dfdca53633d",
+      "after_sha256": "1f7521cd972ac9fcafc7471d73b4077b62d9a72be4a7e2959ae823ab5ec2fdb4"
+    },
+    {
+      "file": "firmware/basic/remote_basic.axf",
+      "before_sha256": "3e38d84df0dbc012530362932e05a501f52ef1c3c39c5ab83266470c0301e92d",
+      "after_sha256": "6afdb469c8a924988eef2fd4b80f435c00e11c713bc14830b8ffec664ba627ac"
+    },
+    {
+      "file": "firmware/upgrade_ab/flight_upgrade_ab.axf",
+      "before_sha256": "56417c476215f595bcc6a1e6b444f4291df2b5abcaf2ba01f9ce01150bf74d9a",
+      "after_sha256": "74490b9b071743008c33c7f775b64284792a33112517d72c6bc438832293fee5"
+    },
+    {
+      "file": "firmware/upgrade_ab/flight_upgrade_ab.hex",
+      "before_sha256": "1fe4dbb56b816d36b90aa911158afcc7bf0ee8b5b58a649c26ba1e1bcc4dcdea",
+      "after_sha256": "e3bfa177588f8e497719df7ea298e46b672d3cd65d3231bee703987cfeeca4c9"
+    },
+    {
+      "file": "firmware/upgrade_single/flight_upgrade_single.axf",
+      "before_sha256": "cfdc3fa24c223f0456fde7e11b7da920db0e75b000908783441159feb4848e7d",
+      "after_sha256": "3121a259d5d2bc90741bc0c794b8c5472b27ff32aa8fea4659d0db00f4ff3f0a"
+    },
+    {
+      "file": "firmware/upgrade_single/flight_upgrade_single.hex",
+      "before_sha256": "1b8ee106f170e272b4c5bffe3eca37a1670b6f8b651725d7af0e56346a552efe",
+      "after_sha256": "673e889535a4dbdcb43561afd701bb13ead91a54f738d153a3530fc3732d39da"
+    },
+    {
+      "file": "flight/HAL/j_config.h",
+      "before_sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a",
+      "after_sha256": "7666420195b884ec1b9c742666ddbe3ad7d39c58a58bc3a434f5503318e77289"
+    },
+    {
+      "file": "flight/HAL/j_core.c",
+      "before_sha256": "680eaad340506f93dd8b8d1c665857e04c183a7369772a04f78989ba712c1ed9",
+      "after_sha256": "547217a29eee22ece30824b5505ddee815e3991b7de260717b6e24adc9578c7e"
+    },
+    {
+      "file": "flight/HAL/j_core.h",
+      "before_sha256": "6a579cbfb7616470e95cc5e376fc025848966c11d24182b7febe65ac4fb22cfc",
+      "after_sha256": "d7ccbb933ce371d40ae5980e1d94839d3bb8931d5346a9b6f843575fd19e697d"
+    },
+    {
+      "file": "flight/HAL/j_platform.c",
+      "before_sha256": "ece2fa3c6cf161f771e1e352a0df250fb6be99810d2f46bb6a110802fe0ecd6a",
+      "after_sha256": "8843e63f72e19d3707f1c28ebc107a1e7e610956190f16e0b63a1f5e1b00615d"
+    },
+    {
+      "file": "flight/HAL/j_sensors.c",
+      "before_sha256": "fed762c9b93eebdba0ecf3c7290d6c6815606e0f4a822b763548f260f5a91f47",
+      "after_sha256": "dd060f8fde88bb2703ae7c24c46dbe19170ed8ab3dfb6e6c5d72cae32fde7ed0"
+    },
+    {
+      "file": "flight/HAL/j_sensors.h",
+      "before_sha256": "341ebea1396973a6ef8dc312d8640e1a305aa5870f312777307f39dbe345ef46",
+      "after_sha256": "79174429fafbdd2897a4ca6cc5674573d3b33a9f03b85a250604b4c10b3ceb80"
+    },
+    {
+      "file": "flight/HARDWARE/flow.c",
+      "before_sha256": "5dfe6dcfd3737d91d48508725b0001fc235cf38d2016bc056a0e84e71adfa994",
+      "after_sha256": "31676edb4a10599406f53a82bd351b91e7053c2f2fc45bbab0d29bb1bd41f65d"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "71670a2f24ac257039bf15a5a7cec88c6fe463ef197136ba8a81828e68993f58",
+      "after_sha256": "00d6d80cf17f7db51bf33f5808c95e3b1d785b1407f4d3fef5a7cb321d451a2e"
+    },
+    {
+      "file": "remote/HAL/j_config.h",
+      "before_sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a",
+      "after_sha256": "7666420195b884ec1b9c742666ddbe3ad7d39c58a58bc3a434f5503318e77289"
+    },
+    {
+      "file": "upgrade/flight/HAL/j_config.h",
+      "before_sha256": "9300e5085c6fa4d1143a502de458495bbfb14f820cd4c3341a8a6cae0761ea22",
+      "after_sha256": "1e249253df76cc243129e3f1bc07b97166b5045ecfa91e0c8c642e1d210c03f0"
+    },
+    {
+      "file": "upgrade/README_替换与回退.md",
+      "before_sha256": "cb3650bf9aa176e75e920dab8bc72444c9dfd8ac37a7c24b031d49c3d1cb7b3c",
+      "after_sha256": "11af4c7a07114cddabccc45e1c9e18f9f1c848ee5b8f08f70ba773f52b2165db"
+    },
+    {
+      "file": "verification/finalize.py",
+      "before_sha256": "b91bbfa448090cedd3867529114947452ab652ee0962c782187fa823f5bb3ccb",
+      "after_sha256": "b9754f3575799f1a8dfb74aeafbf044f9ddbd90543659d874f88e6abebd1b8ff"
+    },
+    {
+      "file": "verification/flight_basic_build.json",
+      "before_sha256": "7491d9c3342ace338546052b5f975bd8a45024872c47209a5886df6e7520459c",
+      "after_sha256": "2d3449c97fca88de27d8582afe6119b4c8ee033b662f24cb982deba6fc194ea6"
+    },
+    {
+      "file": "verification/flight_basic_memory.map",
+      "before_sha256": "a4fe6b3ca4d233541a8112255c58bbd8022e37f034ab0bdfba0e6c86db0c900b",
+      "after_sha256": "589321177c3f7c4b97527339618a455f3ffc14b2688223731aeaa66b27c0bc22"
+    },
+    {
+      "file": "verification/flight_upgrade_ab_build.json",
+      "before_sha256": "bca2e913dfa0c72418cc584f2a00d31d4f9b5f8e18ae7631454cdd3ea6eaba13",
+      "after_sha256": "ae2e9c8cd83dc59a95f637d70985b142253d38a973065990fc70f4fca7744671"
+    },
+    {
+      "file": "verification/flight_upgrade_ab_memory.map",
+      "before_sha256": "829cf034183a36a652b543877e2e7ca9e2ae5b687ec3a0a208e0a21cf30d83ac",
+      "after_sha256": "277b19789064d054bc1dd310ca5ce91f6b0c70b124fa357b763eb999a6569c40"
+    },
+    {
+      "file": "verification/flight_upgrade_single_build.json",
+      "before_sha256": "8186316e826094a4a79b6fc5e3bcd2851b5d3e39112c546c75a98f15ccfa38d4",
+      "after_sha256": "3496d1ed1e5f8c799134e0616c1298544b7a87ce73e769d21c187ff176a38b42"
+    },
+    {
+      "file": "verification/flight_upgrade_single_memory.map",
+      "before_sha256": "8c71978cb76cc323298195c6561267351a94b126e6e2fcabc207d34ad3d5a44c",
+      "after_sha256": "7801cf96a05dc0c3eb0629db52751e05290f310557aeba7f88397fd932e6c5c5"
+    },
+    {
+      "file": "verification/hardware_evidence/c1_admission_red/results.json",
+      "before_sha256": null,
+      "after_sha256": "95a11e9b4ee037c6a4fd6b341153b8b87a795b7ba363f79faa51470fbd7d7696"
+    },
+    {
+      "file": "verification/hardware_evidence/c1_admission_red/results.log",
+      "before_sha256": null,
+      "after_sha256": "b51f75f00d3939b8470b92d4969805c66b2ddbd4d50ad026140ea0de3db489fa"
+    },
+    {
+      "file": "verification/hardware_evidence/c1_admission_red/test_hardware.c",
+      "before_sha256": null,
+      "after_sha256": "3218eae841a06d7bcc99f53f435fd03a638ec722494a6341baa032388afc8494"
+    },
+    {
+      "file": "verification/hardware_evidence/firmware_match.json",
+      "before_sha256": null,
+      "after_sha256": "cd8bee6f3e9931bc16962b74581d1b7cbcda57805d10ccf7ef3650450f71e3da"
+    },
+    {
+      "file": "verification/hardware_evidence/height30_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "f73b060cd0ce059600d9d66f5db83fbe70a84503c1d6a19d759693491d29678e"
+    },
+    {
+      "file": "verification/hardware_evidence/height30_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "74307a30640f66e7ab93fb933c558648a2b6b0d79672f5d27cd748a3fe08f17a"
+    },
+    {
+      "file": "verification/hardware_evidence/height80_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "cc2ee83ea7d337835a78b305c65f91d09eb44d4a5868dfa659752fe4dbf8633f"
+    },
+    {
+      "file": "verification/hardware_evidence/height80_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "b4653306f7876ae3df56cab4dc4462f8dbaa167576aac566cb99b38feff0d186"
+    },
+    {
+      "file": "verification/hardware_evidence/idle_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "c76455a5d47b2a23d9eefefe50769457a5b402ffd615cc1d04eb446bb029a8a9"
+    },
+    {
+      "file": "verification/hardware_evidence/idle_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "92222b1b5130507dc634fc2255cdbc84ab1a515f104506f9bbe32fb267207948"
+    },
+    {
+      "file": "verification/hardware_evidence/measurements.json",
+      "before_sha256": null,
+      "after_sha256": "da60155b997b7ffb45b0903f2ca3437830ad7896a9346db67527bff91cb16416"
+    },
+    {
+      "file": "verification/hardware_evidence/range_arm_before.json",
+      "before_sha256": null,
+      "after_sha256": "e7a0438472f129b4cdb4555abf6a7baa208ca0e12329d282f1c69cbebb720d4d"
+    },
+    {
+      "file": "verification/hardware_evidence/rc_idle_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "0dc536f6dac2fa94e281591f1ff9cffb7b13879fd3d7ef54f547ac5a67fc9a34"
+    },
+    {
+      "file": "verification/hardware_evidence/rc_idle_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "1a6e5376cf26312451052de189348cc52b6610d281fc795446730499f58512d9"
+    },
+    {
+      "file": "verification/hardware_evidence/README.md",
+      "before_sha256": null,
+      "after_sha256": "981d3278ff559d04a95ac4d74b9b9ad54f5835f0da5d1b60c3199ce594efaba9"
+    },
+    {
+      "file": "verification/hardware_evidence/symbols.json",
+      "before_sha256": null,
+      "after_sha256": "d9097488de4e2261ff680ca5e8250992f07fcc2fb8e476928f05a83202b6206e"
+    },
+    {
+      "file": "verification/hardware_evidence/unit_scalar_red/results.json",
+      "before_sha256": null,
+      "after_sha256": "3647ca7f1893c650cfabc61c7c3c9bee470914dc73deced37c1f12270d91d7f3"
+    },
+    {
+      "file": "verification/hardware_evidence/unit_scalar_red/results.log",
+      "before_sha256": null,
+      "after_sha256": "26ff007979619af1ee257402aa3083ce925e2567398f52b239244c53a58fca97"
+    },
+    {
+      "file": "verification/hardware_evidence/unit_scalar_red/test_hardware.c",
+      "before_sha256": null,
+      "after_sha256": "574653e4647c9ac7ae5e1513f6fd5f3111eb002e4c25134314cd64e188b4e911"
+    },
+    {
+      "file": "verification/native/bh_i2c/compile.log",
+      "before_sha256": "7867e3e2acb92249ba5a442f8e487e21bd790ed82c1dcf7897132cc3ad6a7a6e",
+      "after_sha256": "5efaf18070716c9784ee8c3cc3e6a7cc9c9f09eb5a458a2e4f829c4ae07ffda7"
+    },
+    {
+      "file": "verification/native/bh_i2c/results.json",
+      "before_sha256": "dff7c380481af586c446c3291a5724ac1a3ba9a3c0624d69965c1aa546b7f621",
+      "after_sha256": "5ba9c6d3aab41f86c9839703017fb33057642c0c363e87c0cf8fcd1e3a9a0830"
+    },
+    {
+      "file": "verification/native/core/compile.log",
+      "before_sha256": "21d61f52bfa10f786f668e77bd84fb10fc1342406835495cc3a31c2016f89dad",
+      "after_sha256": "81d5b6a4ce13731e1331697271970c9eb22103ec7467d5a6deb4a83cf3c61fd3"
+    },
+    {
+      "file": "verification/native/core/results.json",
+      "before_sha256": "9b00214c47b2c70f4c97e68178b42c3754151f7f69f3f7bd3338bb4d8c64c4d8",
+      "after_sha256": "8cf969f455f91c41baff435ab26a7e580ebc1ffe460d27dd5234dc5f640c5a7e"
+    },
+    {
+      "file": "verification/native/core/results.log",
+      "before_sha256": "1992d363bf6305c7d22b5cb94613e6fd68db3af826edd2504b1c48eef6a7210e",
+      "after_sha256": "9d458efc539f86aa031dc7c508809f7cd46ff8056c00ff0f1d5855c6ffac615a"
+    },
+    {
+      "file": "verification/native/hardware/compile.log",
+      "before_sha256": "e7cd4ef843ee14a4c6aa99ad31c92b729d59dfdc29b315c12a70fbb33847d8b1",
+      "after_sha256": "24b4224b382ad4e89cd8f2e20b6ec6938a65040630f1db0866a5f0bb6e509256"
+    },
+    {
+      "file": "verification/native/hardware/results.json",
+      "before_sha256": "105eea129681957da6ed7f642839a51c844fa56518b174a2df4645281ee3eb5d",
+      "after_sha256": "ac73201d48b2aac3a66d3a11f22389ff0e20e61e92ee2c6bd9785957c058feee"
+    },
+    {
+      "file": "verification/native/hardware/results.log",
+      "before_sha256": "ed7eff7b5254610a90c358544d60b2e76679be97a26099c839c9500867e4110b",
+      "after_sha256": "bfcf22d156b2f1510310fd2740353312ada5bc4dfc4acef3cbd1a8e79ecad160"
+    },
+    {
+      "file": "verification/native/nav_ab/compile.log",
+      "before_sha256": "ae9d5972dcc7a8b5484bf6c028f3c9d10cf6460616f41c1b9e684c94ac96c3c7",
+      "after_sha256": "2ccc86d1ee1495e067e952d33b906fbcebedd56c58ed6f00d5338d729a2e3cd8"
+    },
+    {
+      "file": "verification/native/nav_ab/results.json",
+      "before_sha256": "3ed9632c76053c86606fb8fee4e2c32c286f4ab6e489f6e18dd1c312949c202d",
+      "after_sha256": "d45b2da048edc1b22341c06be75e59ad61f851da9c9ffd861f8c0bcfbfe2127c"
+    },
+    {
+      "file": "verification/native/nav_single/compile.log",
+      "before_sha256": "3f9d6b51afea99d0877c0f313a831e9c60d8b72bbd5e5f2a154a97200641c088",
+      "after_sha256": "a838dfe2a8add28a18a88fd97ee209f709e18d238cde5cc12fa4f0b6c48c3934"
+    },
+    {
+      "file": "verification/native/nav_single/results.json",
+      "before_sha256": "7ac8abe4aa225911219475b43c4abe1e30ed457b5b2b660281160bf427510dc3",
+      "after_sha256": "44f27d8af65290dcccb8f35ecb7ff7c6c1727cbca044685339e4e7ae17b0f5a8"
+    },
+    {
+      "file": "verification/native/nav_uncalibrated/compile.log",
+      "before_sha256": "8480edf2bd6b403550e51fdb0b2c24d917b1f58bbbaa87bb97c486a6eced7d25",
+      "after_sha256": "76253238c11cf4e30cbbdcf3820f5840a5b98d8ba8a89dca8e94ac4c5c46f2fe"
+    },
+    {
+      "file": "verification/native/nav_uncalibrated/results.json",
+      "before_sha256": "b58b83def8579423e5a054e7be785b4063ad27955d76dfaa3f1b4e49c3e13921",
+      "after_sha256": "94f26aa6a608f431ebb63bbc4db74d9b35913332f958b457a0c7c6161a3057e5"
+    },
+    {
+      "file": "verification/native/protocol/compile.log",
+      "before_sha256": "fe83446f7190f5302918ed55cd41b98613a6ce2acf71269eb3f2207978742202",
+      "after_sha256": "ada92252317584c67b2132968f08d098209996f482fbef62c5c56fdb2f3fbf24"
+    },
+    {
+      "file": "verification/native/protocol/results.json",
+      "before_sha256": "3491619e8d4b5f17a32d9150651840bf4ba8c2ce08ab6003cfa6d72bb480f95c",
+      "after_sha256": "37b971d4166a4a8106b0a454874a82adfd949b042b8cfe58e301fe39a9b92d6d"
+    },
+    {
+      "file": "verification/near_takeoff_basic_results.json",
+      "before_sha256": null,
+      "after_sha256": "e3d6a5588feb8f810b9daefc7146283be4967a87022f156e1349ef3ef48febf2"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/before_fix/compile.log",
+      "before_sha256": null,
+      "after_sha256": "81d5b6a4ce13731e1331697271970c9eb22103ec7467d5a6deb4a83cf3c61fd3"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/before_fix/results.json",
+      "before_sha256": null,
+      "after_sha256": "e0cddbabe85d2493baa4970c09b8e5bb70de991f47cb17967dcdbefd113ab9fe"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/before_fix/results.log",
+      "before_sha256": null,
+      "after_sha256": "89395fe29a2903c1a2b26894eee9c0aa80f41c441f82110e492ea5a18bee6003"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/before_fix/test_core.c",
+      "before_sha256": null,
+      "after_sha256": "6527b458ac2d0399633e5f906cfa6cd200b1b824cf694aaa586853d5b3b686b1"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam25_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "2c3d6b058e230f4b7c1cd2f999a98a5920e8efa0a2ed2e465c8a09ceabbc6098"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam25_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "e8fa0d4458207bf8a2bafaa981d49f1bcfa954d49101a47b1ebd1391ee377ee2"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam25_read.txt",
+      "before_sha256": null,
+      "after_sha256": "9cbe35cbc4bc5f77b6d712c26e22b91899748854d583c8d17b907b69386614af"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam_ground_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "4a28023711ebc71f6ddec2f2c88795843496486e36370155c28b00ce14d80bc7"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam_ground_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "c3061a6bfe82aa15fd7b9c6ea01ece7c2e221b0207c6269dea250965fdd99a89"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/foam_ground_read.txt",
+      "before_sha256": null,
+      "after_sha256": "c9511900edfc2be3128476a6a89808d8c0d5359c352be031b972740a247aab1e"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/ground_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "c1e310caf32f021aeff68a000693af9102e5295c2601a7a47238f4ea13e72f27"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/ground_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "0a973ff6648887e9ac62ca40bb0a42bdfa80a555d4de02c3f07d81bddea3fe99"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/ground_read.txt",
+      "before_sha256": null,
+      "after_sha256": "384bf698a5d613dad8aaffed7def3e885bdf1ece479a7b7266697fa348413075"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height26_coldboot_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "fab9d356543c9914079d6dd093d94d45fadc2d26b20f04867bebbad10609b5ed"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height26_coldboot_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "3212f726522dc49fc8de13e2e3c09201828ca7f2998c8d9e5dced2b99ee51f63"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height26_coldboot_read.txt",
+      "before_sha256": null,
+      "after_sha256": "b316e78765016371149543feb9f947c5a6e71871aa64f0bf6987f1063d5c8e97"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height30_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "057905ae551f99c979cccb5868fcc13fab9b2cfbff41225562fbe2e6d2164ebb"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height30_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "f665ea95202816f9eebfcf04e9e1b6ba3747a88e4a8566b09335c3401391de6f"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height30_read.txt",
+      "before_sha256": null,
+      "after_sha256": "3eedb8665542d6325f5b72b5f391b2fb2dbbc492dc989bff40e71b3b44c5d0be"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height80_ram_01.json",
+      "before_sha256": null,
+      "after_sha256": "bff41765f598f25806ef73894c6f5870a8dfd6e372a6d6898a3310e47831f12c"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height80_ram_02.json",
+      "before_sha256": null,
+      "after_sha256": "b925dc628763166c9fe894575043b84c19508cc939ae9b4f58e3a5daa8948518"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/height80_read.txt",
+      "before_sha256": null,
+      "after_sha256": "476d3786e8bc39bba99c398fca3e6be1670a881ba0c393cff4af922798eeb874"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/range_mm_firmware_match.json",
+      "before_sha256": null,
+      "after_sha256": "7a4f5733fb974e5c7a48d9698858bf515002848c46e16157e0104247265c42c0"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/range_mm_static_verification.json",
+      "before_sha256": null,
+      "after_sha256": "99ea50ade3c719e77b3a3926be7e72f33bd4a98c16f0834b01c1ef3b16498024"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/range_mm_symbols.json",
+      "before_sha256": null,
+      "after_sha256": "6a94d3cc545e93389a8872932934d9dd89a6e5355d1610afbe42d78f7c4a5cf7"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/README.md",
+      "before_sha256": null,
+      "after_sha256": "2df9d690a52ecbb0e9bc17017f529dedbf1cc0552bc39dd78f7bd7c619670051"
+    },
+    {
+      "file": "verification/near_takeoff_evidence/user_decision.json",
+      "before_sha256": null,
+      "after_sha256": "dcfac9975a2b09154b008dca0b926f4144b9dc965f7bec47de97fb716c129928"
+    },
+    {
+      "file": "verification/near_takeoff_upgrade_ab_results.json",
+      "before_sha256": null,
+      "after_sha256": "cfc79cb919e1f9825006e9f3cc905bf983f13f8ae4da5c34088e08d4be429f77"
+    },
+    {
+      "file": "verification/near_takeoff_upgrade_single_results.json",
+      "before_sha256": null,
+      "after_sha256": "2acc567712d9ea89d6695cb5ecac1fe55c1396cee9f6cb7b51a68ba72ac5a9f7"
+    },
+    {
+      "file": "verification/range_units_basic_results.json",
+      "before_sha256": null,
+      "after_sha256": "11b15797c5212db455c4c6571f264d87cd9b882e58db1cb360e6afcf2521d411"
+    },
+    {
+      "file": "verification/range_units_upgrade_ab_results.json",
+      "before_sha256": null,
+      "after_sha256": "3aeb65eb105b956e439e1c48ee43389ea50fd65c14a0cefda0ea1dd532b8c138"
+    },
+    {
+      "file": "verification/range_units_upgrade_single_results.json",
+      "before_sha256": null,
+      "after_sha256": "b7659fa953f42b6c1ea03ff3290d6d9defef550173c9fab5f4fd185f943a4c98"
+    },
+    {
+      "file": "verification/remote_basic_build.json",
+      "before_sha256": "2d04fb09bea5c98781bdb686b24cd6d45cb94b7536607c218f36959a768ee6b7",
+      "after_sha256": "f75f14342b827fa09e8185dbfe2383e23fbb70bfd18372f812182eb596c96eb6"
+    },
+    {
+      "file": "verification/remote_basic_memory.map",
+      "before_sha256": "940102cecbce3c63283179de8dfb578912806abd20184cd012f27998b0905f8e",
+      "after_sha256": "7370be9cf221567956d46e0b3a2fea0e3cc89c9e6bc172ed50e38f22ae4c05e9"
+    },
+    {
+      "file": "verification/software_results.json",
+      "before_sha256": "800f844f1a427364556fdd359591ee7d35c6e2c8e6398fe7a5d087f92b938072",
+      "after_sha256": "9f387cfe72d611b7112e5bcb54cd5c01a314d1e5d1e30405e608a5a7802503d1"
+    },
+    {
+      "file": "verification/test_core.c",
+      "before_sha256": "5b274c34d4d859c4f7da2377f4f72a9f433279d9a4b6b0da4a3c6f2b6585e9a4",
+      "after_sha256": "8cec318eebdb37e5af4f62c927a7fef15f76ecbe4ceb516f38331294635ae62c"
+    },
+    {
+      "file": "verification/test_hardware.c",
+      "before_sha256": "f2fb976d75fac2f6bd8eac3411e7dc6878585f8f158cb83d43767ae4d4632cc8",
+      "after_sha256": "11c7359cb0555eed3d8d9b6b58be36628e2afda8bc602f00b7531124fb929583"
+    },
+    {
+      "file": "verification/timer_basic_results.json",
+      "before_sha256": "b985cb1ad28b08280f752da6208b777a895cc590af279141e2ea6fe96ed84a69",
+      "after_sha256": "db18edc3f08d83ceb56a2d447c03ee3af2dacb0bbfd4a715d0fd511af7b9ebbe"
+    },
+    {
+      "file": "verification/timer_upgrade_ab_results.json",
+      "before_sha256": "79023e695eefaeaae030506e520aeb8873265962b5480b8d47e6c49a3984bde6",
+      "after_sha256": "ec7164ee0702a71259bc2ae3988cdac80015414cceee5230da94f6b079a0e1aa"
+    },
+    {
+      "file": "verification/timer_upgrade_single_results.json",
+      "before_sha256": "9a1d66749fd5eb220c3d8d96d9fd6c06e63e57f3d3cb89da461386bef9938484",
+      "after_sha256": "cc0fe86594079dd967bd8f255335104fe1d9d72184cc8afe77f3778670221807"
+    },
+    {
+      "file": "verification/verify_near_takeoff.py",
+      "before_sha256": null,
+      "after_sha256": "bc5642fe4954ce75a968aaf89ce0a2281f90321f05ce2b5966af710b2109ffe9"
+    },
+    {
+      "file": "verification/verify_range_units.py",
+      "before_sha256": null,
+      "after_sha256": "ba50dcdcc9cef20c20a1277200f8c95309a0097d16b696a3495a9f5fb5f4bf2c"
+    },
+    {
+      "file": "verification/前版保留核对.json",
+      "before_sha256": null,
+      "after_sha256": "6d3a20bf387fc9f3eafcd653d6b0baf7ab3b39bbd8e51eccf946fd6e26fe5a77"
+    },
+    {
+      "file": "verification/最终核验.json",
+      "before_sha256": "b12b6a3d684f64481188bfd90cd019e5bcc7b983b7af2fcb02657e7d225f5257",
+      "after_sha256": "62a5d95acdf1867c6eb7c2290971f4740f53b07e8573342734b94ecdf3879129"
+    },
+    {
+      "file": "verification/构建与测试汇总.md",
+      "before_sha256": "a26e161e6690c704f4417664b03780c07b123995ab45295a2e614ddd64ef1ee6",
+      "after_sha256": "34de733bb5fe7628982316c3803433b3b3d7f76ee773185eedc169ed6442ccd9"
+    },
+    {
+      "file": "verification/源码变更清单.json",
+      "before_sha256": "c86f54a5c45fac4a517168cbc6c800d90b118bd8a6472bd0dd85e06b22f528ac",
+      "after_sha256": "258c263823ae1849442e2bf4f06135bf66879f7f3e9e0d1e7484782a79eff52f"
+    },
+    {
+      "file": "verification/需求核对.md",
+      "before_sha256": "8fdbc2b6131f36fadcfdef8ebac920792aec804243555c0af9504e4c900b1de3",
+      "after_sha256": "d5bab4a1e7d8d3c219dacf3471ef193f07d05d1081a92156ae2cc760e011a998"
+    },
+    {
+      "file": "flight/Output/flight_basic.hex",
+      "before_sha256": "77f31a17dabba005e8b4bb59f4df32f9e5e2a8f1cee2d77bad2d6e07739c746f",
+      "after_sha256": "1f7521cd972ac9fcafc7471d73b4077b62d9a72be4a7e2959ae823ab5ec2fdb4"
+    },
+    {
+      "file": "flight/Output/flight_basic.axf",
+      "before_sha256": "cb16f56c02bed5ccef0393ff4719eec219fb32306b122638676d3bfdb90725b3",
+      "after_sha256": "7d4cca536bbfae268c97ef0194b71957715f25ee3d17d4e7a048c77e9dc2ab01"
+    },
+    {
+      "file": "flight/Output/flight_basic.map",
+      "before_sha256": "a4fe6b3ca4d233541a8112255c58bbd8022e37f034ab0bdfba0e6c86db0c900b",
+      "after_sha256": "589321177c3f7c4b97527339618a455f3ffc14b2688223731aeaa66b27c0bc22"
+    },
+    {
+      "file": "flight/List/flight_basic.map",
+      "before_sha256": "a40826caff6b0dfd22f0e186fcf7a005bca7d4f1eea0d97f73b99cb362a9b98d",
+      "after_sha256": "589321177c3f7c4b97527339618a455f3ffc14b2688223731aeaa66b27c0bc22"
+    },
+    {
+      "file": "remote/Output/remote_basic.axf",
+      "before_sha256": "3e38d84df0dbc012530362932e05a501f52ef1c3c39c5ab83266470c0301e92d",
+      "after_sha256": "6afdb469c8a924988eef2fd4b80f435c00e11c713bc14830b8ffec664ba627ac"
+    },
+    {
+      "file": "remote/Output/remote_basic.map",
+      "before_sha256": "940102cecbce3c63283179de8dfb578912806abd20184cd012f27998b0905f8e",
+      "after_sha256": "7370be9cf221567956d46e0b3a2fea0e3cc89c9e6bc172ed50e38f22ae4c05e9"
+    },
+    {
+      "file": "remote/Listings/remote_basic.map",
+      "before_sha256": "ea2d67d6498d191c362900b2a26ca9ed4cd09ca0260d47ee2106cff2e5bace8c",
+      "after_sha256": "7370be9cf221567956d46e0b3a2fea0e3cc89c9e6bc172ed50e38f22ae4c05e9"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "00d6d80cf17f7db51bf33f5808c95e3b1d785b1407f4d3fef5a7cb321d451a2e",
+      "after_sha256": "18b6db1bc2c633c34dc45fa423bb1974d167fba6edb00fc8bdfca937e995a724"
+    },
+    {
+      "file": "docs/近地起飞阶段与验证_20261029.md",
+      "before_sha256": "906319ca4a18763ed809987365de9416617048c7c99aa1f5920312a0ee1322b6",
+      "after_sha256": "0a2f78608b6ac78d2faaf02a0c9a459cf68114cfdbeebe3746ac30a4cd75f12a"
+    },
+    {
+      "file": "verification/前版保留核对.json",
+      "before_sha256": "6d3a20bf387fc9f3eafcd653d6b0baf7ab3b39bbd8e51eccf946fd6e26fe5a77",
+      "after_sha256": "fabd184794c05162f84a7476776dd9007c6ec3e72b5523ca936095837a2a2559"
+    },
+    {
+      "file": "verification/最终核验.json",
+      "before_sha256": "62a5d95acdf1867c6eb7c2290971f4740f53b07e8573342734b94ecdf3879129",
+      "after_sha256": "db65f6a44908bcc5edd6f287fb40ac8aedcb1421e9df231d2769127eb24da675"
+    }
+  ]
+}

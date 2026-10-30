@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "variant": "upgrade_single",
+  "cases": [
+    {
+      "name": "bounded_timeout",
+      "passed": true
+    },
+    {
+      "name": "emergency_and_io",
+      "passed": true
+    },
+    {
+      "name": "measured_handoff",
+      "passed": true
+    },
+    {
+      "name": "c4_handover",
+      "passed": true
+    },
+    {
+      "name": "no_low_restart",
+      "passed": true
+    },
+    {
+      "name": "wrap_deadline",
+      "passed": true
+    }
+  ],
+  "engine": "unicorn 2.1.4",
+  "replay_step_ms": 6,
+  "axf_sha256": "3121a259d5d2bc90741bc0c794b8c5472b27ff32aa8fea4659d0db00f4ff3f0a",
+  "hex_sha256": "673e889535a4dbdcb43561afd701bb13ead91a54f738d153a3530fc3732d39da",
+  "hardware_access": false,
+  "flashed": false,
+  "scope": "Actual ARM state machine with synthetic sensor/RC frames; no flight dynamics."
+}

@@ -1,0 +1,1 @@
+FAIL blind_ground_c3_starts_bounded_ramp:61: f.c.mode==J_C3_AUTO && f.c.phase==J_ADJUST && f.c.fault==J_OK && f.c.motors_on

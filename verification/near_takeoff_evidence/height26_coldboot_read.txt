@@ -1,0 +1,77 @@
+SEGGER J-Link Commander V9.86a (Compiled Oct 16 2026 14:34:57)
+DLL version V9.86a, compiled Oct 16 2026 14:24:24
+
+J-Link Commander will now exit on Error
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>exec ForceAttachTarget=1
+J-Link connection not established yet but required for command.
+Connecting to J-Link ...O.K.
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware version: V7.00
+J-Link uptime (since boot): N/A (Not supported by this model)
+S/N: 20090928
+License(s): RDI,FlashBP,FlashDL,JFlash,GDB
+VTref=3.300V
+J-Link>exec InhibitConnectRetries=1
+J-Link>exec SetRestartOnClose=1
+J-Link>exec SetSkipDebugDeInit=1
+J-Link>exec SetEnableMemCache=0
+J-Link>connect
+Device "STM32F103C8" selected.
+
+
+Connecting to target via SWD
+InitTarget() start
+SWD selected. Executing JTAG -> SWD switching sequence.
+DAP initialized successfully.
+InitTarget() end - Took 66.4ms
+Found SW-DP with ID 0x2BA01477
+DPv0 detected
+CoreSight SoC-400 or earlier
+Scanning AP map to find all available APs
+AP[1]: Stopped AP scan as end of AP map has been reached
+AP[0]: AHB-AP (IDR: 0x24770011, ADDR: 0x00000000)
+Iterating through AP map to find AHB-AP to use
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FF000
+CPUID register: 0x412FC231. Implementer code: 0x41 (ARM)
+Found Cortex-M3 r2p1, Little endian.
+FPUnit: 6 code (BP) slots and 2 literal slots
+CoreSight components:
+ROMTbl[0] @ E00FF000
+[0][0]: E000E000 CID B105E00D PID 000BB000 SCS
+[0][1]: E0001000 CID B105E00D PID 003BB002 DWT
+[0][2]: E0002000 CID B105E00D PID 002BB003 FPB
+[0][3]: E0000000 CID B105E00D PID 003BB001 ITM
+[0][4]: E0040000 CID B105900D PID 003BB923 TPIU-Lite
+Memory zones:
+  Zone: "Default" Description: Default access mode
+Cortex-M3 identified.
+J-Link>IsHalted
+CPU is not halted.
+J-Link>mem32 0x2000001C 1
+2000001C = 0001FBBB 
+J-Link>SaveBin "E:\Inside School\Electric Design\Inside School\diagnostics_20261029\range_fix_check_01\height26_coldboot_ram_01.bin" 0x20000000 0x1000
+Opening binary file for writing... [E:\Inside School\Electric Design\Inside School\diagnostics_20261029\range_fix_check_01\height26_coldboot_ram_01.bin]
+Reading 4096 bytes from addr 0x20000000 into file...O.K.
+J-Link>Sleep 100
+Sleep(100)
+J-Link>SaveBin "E:\Inside School\Electric Design\Inside School\diagnostics_20261029\range_fix_check_01\height26_coldboot_ram_02.bin" 0x20000000 0x1000
+Opening binary file for writing... [E:\Inside School\Electric Design\Inside School\diagnostics_20261029\range_fix_check_01\height26_coldboot_ram_02.bin]
+Reading 4096 bytes from addr 0x20000000 into file...O.K.
+J-Link>mem32 0x40012C28 3
+40012C28 = 000002CF 0000012B 00000000 
+J-Link>mem32 0x40000034 4
+40000034 = 00000000 00000000 00000000 00000000 
+J-Link>mem32 0x2000001C 1
+2000001C = 0002005D 
+J-Link>IsHalted
+CPU is not halted.
+J-Link>q
+
+Script processing completed.
+
+OnDisconnectTarget() start
+OnDisconnectTarget() end - Took 4.28ms

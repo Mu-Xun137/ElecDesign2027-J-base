@@ -64,7 +64,8 @@ void JPlatform_ControlTick(float dt,uint8_t module_tick)
     else JCore_Step(&j_flight,&in);
     if(!was_armed && j_flight.armed) JSensors_ArmReference(&j_sensor);
     ALL_flag.unlock=j_flight.armed;
-    ALL_flag.height_lock=j_flight.armed && j_flight.mode!=J_MANUAL && j_flight.mode!=J_LASER_WAIT;
+    ALL_flag.height_lock=j_flight.armed && !j_flight.near_active &&
+        j_flight.mode!=J_MANUAL && j_flight.mode!=J_LASER_WAIT;
     ALL_flag.flow_control=ALL_flag.height_lock && j_flight.mode!=J_FLOW_HOLD;
     pidHeightHigh.measured=in.s.height_mm; pidHeightHigh.desired=j_flight.height_target_mm;
     pidHeightRate.measured=in.s.vz_mm_s;
@@ -103,7 +104,8 @@ static void send_status(void)
     s.mode=(uint8_t)j_flight.mode; s.phase=(uint8_t)j_flight.phase;
     s.flags=(j_flight.armed?J_STATUS_ARMED:0U)|(JCore_AlertActive(&j_flight,now)?J_STATUS_ALERT:0U)|
         (j_flight.arrival?J_STATUS_ARRIVAL:0U)|(j_flight.task_failed?J_STATUS_FAILED:0U)|
-        ((j_flight.mode==J_ALIGN||j_flight.mode==J_LASER_WAIT)?J_STATUS_ALIGN:0U)|
+        ((j_flight.mode==J_ALIGN||j_flight.mode==J_LASER_WAIT||
+          (j_flight.near_active&&j_flight.near_align))?J_STATUS_ALIGN:0U)|
         (j_flight.fault!=J_OK?J_STATUS_FAULT:0U)|
         ((j_flight.nav_requested?j_flight.nav_completed:j_flight.completed)?J_STATUS_COMPLETE:0U)|
         (j_flight.fault==J_ERR_ESTOP?J_STATUS_ESTOP:0U);

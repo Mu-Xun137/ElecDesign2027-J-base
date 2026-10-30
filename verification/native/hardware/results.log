@@ -1,3 +1,6 @@
+PASS measured_millimetre_frames_and_airborne_c1
+PASS real_near_start_status_and_timeout_zero_pwm
+PASS real_near_c2_clears_pwm_before_next_tick
 PASS pwm_mixer_and_lock
 PASS c2_real_parser_clears_pwm_before_control_tick
 PASS actual_led_channel_mapping_and_low_polarity
@@ -12,4 +15,4 @@ PASS pid_limits_antiwindup_and_derivative_measurement
 PASS actual_systick_and_scheduler_have_one_clock_owner
 PASS actual_deadline_handler_clears_pwm
 PASS telemetry_turnaround_delay_not_unsigned_underflow
-RESULT cases=14 checks=54
+RESULT cases=17 checks=105

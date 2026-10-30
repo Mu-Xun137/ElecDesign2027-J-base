@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "variant": "basic",
+  "engine": "unicorn 2.1.4",
+  "entry": "0x8000eb9",
+  "axf_sha256": "7d4cca536bbfae268c97ef0194b71957715f25ee3d17d4e7a048c77e9dc2ab01",
+  "hex_sha256": "1f7521cd972ac9fcafc7471d73b4077b62d9a72be4a7e2959ae823ab5ec2fdb4",
+  "cases": [
+    {
+      "raw_mm": 0,
+      "expected_height_mm": 0,
+      "height_mm": 0.0,
+      "range_ok": 0,
+      "velocity_ok": 0,
+      "flow_ok": 0,
+      "expected_valid": false,
+      "module_ms": 1030,
+      "passed": true
+    },
+    {
+      "raw_mm": 294,
+      "expected_height_mm": 294,
+      "height_mm": 294.0,
+      "range_ok": 1,
+      "velocity_ok": 1,
+      "flow_ok": 1,
+      "expected_valid": true,
+      "module_ms": 1030,
+      "passed": true
+    },
+    {
+      "raw_mm": 800,
+      "expected_height_mm": 800,
+      "height_mm": 800.0,
+      "range_ok": 1,
+      "velocity_ok": 1,
+      "flow_ok": 1,
+      "expected_valid": true,
+      "module_ms": 1030,
+      "passed": true
+    },
+    {
+      "raw_mm": 2000,
+      "expected_height_mm": 2000,
+      "height_mm": 2000.0,
+      "range_ok": 1,
+      "velocity_ok": 1,
+      "flow_ok": 1,
+      "expected_valid": true,
+      "module_ms": 1030,
+      "passed": true
+    },
+    {
+      "raw_mm": 3500,
+      "expected_height_mm": 3500,
+      "height_mm": 3500.0,
+      "range_ok": 1,
+      "velocity_ok": 1,
+      "flow_ok": 1,
+      "expected_valid": true,
+      "module_ms": 1030,
+      "passed": true
+    },
+    {
+      "raw_mm": 3501,
+      "expected_height_mm": 0,
+      "height_mm": 0.0,
+      "range_ok": 0,
+      "velocity_ok": 0,
+      "flow_ok": 0,
+      "expected_valid": false,
+      "module_ms": 1030,
+      "passed": true
+    }
+  ],
+  "hardware_access": false,
+  "flashed": false,
+  "scope": "Compiled ARM input conversion/validity only; no physical flight model."
+}

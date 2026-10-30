@@ -1,0 +1,2 @@
+C1 raw=800: mode=1 fault=8 range_ok=0 flow_ok=0 height=0
+FAIL measured_millimetre_frames_and_airborne_c1:129: j_flight.mode==J_C1_HOLD && j_flight.fault==J_OK

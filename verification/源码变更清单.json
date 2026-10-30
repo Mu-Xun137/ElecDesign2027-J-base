@@ -1,10 +1,5 @@
 [
   {
-    "file": "flight/JLinkLog.txt",
-    "status": "modified",
-    "sha256": "01cd0c509f15b92697470128fffaaeacce31fd73d2643ab3d0bda33a74fd580e"
-  },
-  {
     "file": "flight/JLinkSettings.ini",
     "status": "added",
     "sha256": "63b2920943f2382d47f2dffb269c4575362c5735140896d0fd4334c67813037b"
@@ -13,11 +8,6 @@
     "file": "flight/j_memory.sct",
     "status": "added",
     "sha256": "cc3e8ad44adeb438144e690d0ffa740be791b16ce7d8373622536a6d3e8657e9"
-  },
-  {
-    "file": "flight/mini.uvguix.jxgm",
-    "status": "added",
-    "sha256": "b77a8f502483adfcd75db6626ebe571fca9eb924f9901596c746a6c73c02817e"
   },
   {
     "file": "flight/mini.uvoptx",
@@ -67,17 +57,17 @@
   {
     "file": "flight/HAL/j_config.h",
     "status": "added",
-    "sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a"
+    "sha256": "7666420195b884ec1b9c742666ddbe3ad7d39c58a58bc3a434f5503318e77289"
   },
   {
     "file": "flight/HAL/j_core.c",
     "status": "added",
-    "sha256": "680eaad340506f93dd8b8d1c665857e04c183a7369772a04f78989ba712c1ed9"
+    "sha256": "547217a29eee22ece30824b5505ddee815e3991b7de260717b6e24adc9578c7e"
   },
   {
     "file": "flight/HAL/j_core.h",
     "status": "added",
-    "sha256": "6a579cbfb7616470e95cc5e376fc025848966c11d24182b7febe65ac4fb22cfc"
+    "sha256": "d7ccbb933ce371d40ae5980e1d94839d3bb8931d5346a9b6f843575fd19e697d"
   },
   {
     "file": "flight/HAL/j_nav.c",
@@ -92,7 +82,7 @@
   {
     "file": "flight/HAL/j_platform.c",
     "status": "added",
-    "sha256": "ece2fa3c6cf161f771e1e352a0df250fb6be99810d2f46bb6a110802fe0ecd6a"
+    "sha256": "8843e63f72e19d3707f1c28ebc107a1e7e610956190f16e0b63a1f5e1b00615d"
   },
   {
     "file": "flight/HAL/j_platform.h",
@@ -112,12 +102,12 @@
   {
     "file": "flight/HAL/j_sensors.c",
     "status": "added",
-    "sha256": "fed762c9b93eebdba0ecf3c7290d6c6815606e0f4a822b763548f260f5a91f47"
+    "sha256": "dd060f8fde88bb2703ae7c24c46dbe19170ed8ab3dfb6e6c5d72cae32fde7ed0"
   },
   {
     "file": "flight/HAL/j_sensors.h",
     "status": "added",
-    "sha256": "341ebea1396973a6ef8dc312d8640e1a305aa5870f312777307f39dbe345ef46"
+    "sha256": "79174429fafbdd2897a4ca6cc5674573d3b33a9f03b85a250604b4c10b3ceb80"
   },
   {
     "file": "flight/HAL/remote.c",
@@ -127,7 +117,7 @@
   {
     "file": "flight/HARDWARE/flow.c",
     "status": "modified",
-    "sha256": "5dfe6dcfd3737d91d48508725b0001fc235cf38d2016bc056a0e84e71adfa994"
+    "sha256": "31676edb4a10599406f53a82bd351b91e7053c2f2fc45bbab0d29bb1bd41f65d"
   },
   {
     "file": "flight/HARDWARE/j_bh1750.c",
@@ -168,11 +158,6 @@
     "file": "flight/HARDWARE/nrf24l01.c",
     "status": "modified",
     "sha256": "ec18207f6cafc64739b3f907d8cacdc73c27445429c587606569726c62fe8941"
-  },
-  {
-    "file": "flight/List/flight_basic.map",
-    "status": "added",
-    "sha256": "4c98fccd984c549f8c982f921338661d2f13e18a3912b094dfe9eb33557d837b"
   },
   {
     "file": "flight/List/startup_stm32f10x_md.lst",
@@ -225,11 +210,6 @@
     "sha256": "bcc26891054ba5d34bc41a18b1346150e2e839cf6edbfa737bde93c2d4de3d54"
   },
   {
-    "file": "remote/JLinkLog.txt",
-    "status": "modified",
-    "sha256": "563b36a1fabd71dacf38e30843e3749f6bbb288feb8bf9fa2d332a1c80ec3545"
-  },
-  {
     "file": "remote/JLinkSettings.ini",
     "status": "added",
     "sha256": "63b2920943f2382d47f2dffb269c4575362c5735140896d0fd4334c67813037b"
@@ -238,11 +218,6 @@
     "file": "remote/j_memory.sct",
     "status": "added",
     "sha256": "988df523178071fc4c43d82c3639374d7c8bfe0c423d4fd145695928cb877092"
-  },
-  {
-    "file": "remote/remote.uvguix.jxgm",
-    "status": "added",
-    "sha256": "392951e424692fbb56eb4a2f3372b6d138177b451d1df61e81108a5f8fb61462"
   },
   {
     "file": "remote/remote.uvoptx",
@@ -272,7 +247,7 @@
   {
     "file": "remote/HAL/j_config.h",
     "status": "added",
-    "sha256": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a"
+    "sha256": "7666420195b884ec1b9c742666ddbe3ad7d39c58a58bc3a434f5503318e77289"
   },
   {
     "file": "remote/HAL/j_feedback.c",

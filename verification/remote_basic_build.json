@@ -26,7 +26,7 @@
     "CONFIG\\USART.h": "4254714eb84847d15a5478bb34aa3523c48872167796552e28eda703973f2e41",
     "HAL\\j_boot.c": "ccfc9a78542c9eeb4c4fdea171b3a128cecd7770e09b9476625995f98878a514",
     "HAL\\j_boot.h": "8a72cd6a51e0362bb5cc6fe41b96db5411942efbe9c04935556f07b68195308c",
-    "HAL\\j_config.h": "2b7d5493ae2fcb967d91f840c7e833d81c75a2e3b88cfd2bed06b495d198517a",
+    "HAL\\j_config.h": "7666420195b884ec1b9c742666ddbe3ad7d39c58a58bc3a434f5503318e77289",
     "HAL\\j_feedback.c": "5af8be762b077ea909513ddda2b589c6d1fb802449673ab3dcfc3c4c67585006",
     "HAL\\j_feedback.h": "8067d18d564fe0fc9871c2f131000bda500cc2927df2ebb3beaf2f662acca80c",
     "HAL\\j_keys.c": "6e744e3e6a9a11a297c4370c42a314c620c1ccf73d3d8988d6b4425b72eaecef",
@@ -129,8 +129,8 @@
       "sha256": "7157eab28307031259c81f5a775baea7d8db8ad3649c3ba7466a5ec1a7604113"
     },
     "remote_basic.axf": {
-      "bytes": 355944,
-      "sha256": "3e38d84df0dbc012530362932e05a501f52ef1c3c39c5ab83266470c0301e92d"
+      "bytes": 360052,
+      "sha256": "6afdb469c8a924988eef2fd4b80f435c00e11c713bc14830b8ffec664ba627ac"
     }
   },
   "flashed": false,

@@ -22,6 +22,7 @@ typedef struct {
     float nav_x_mm, nav_y_mm, nav_yaw_deg, nav_heading_deg, lux, roll_deg, pitch_deg, yaw_deg;
     uint8_t range_ok, velocity_ok, flow_ok, imu_ok, light_ok, quality;
     uint8_t module_ok, nav_reference_ok;
+    uint32_t module_ms; /* successful LC08 transaction, even when height is invalid */
 } JSensors;
 
 typedef struct {
@@ -55,6 +56,9 @@ typedef struct {
     float roll_cmd, pitch_cmd, flow_roll, flow_pitch;
     float flow_ix, flow_iy, prev_vx_error, prev_vy_error;
     JNav nav;
+    /* One grant per real manual unlock; every first motor start consumes it. */
+    uint8_t launch_available, near_active, near_align, near_valid_active, near_valid_reads;
+    uint32_t near_start_ms, near_valid_ms, near_last_range_ms;
 } JCore;
 
 float J_Clamp(float value, float low, float high);

@@ -13,15 +13,18 @@ void JSensors_ArmReference(JSensorFilter *f)
     f->last_flow_good_ms=f->value.range_ms;
     f->in_air=0;
 }
-void JSensors_Module(JSensorFilter *f,uint16_t cm,int8_t dx,int8_t dy,
+void JSensors_Module(JSensorFilter *f,uint16_t height_mm,int8_t dx,int8_t dy,
                       uint8_t quality,uint8_t ok,uint32_t now)
 {
     JSensors *s=&f->value;
-    float h=(float)cm*10.0f; /* vendor cm -> mm, ONCE at the input boundary */
+    /* This board returns mm: about 300 mm physically yielded raw 291..294.
+     * Do not apply the conflicting vendor diagram's cm label to this module. */
+    float h=(float)height_mm;
     uint32_t gap;
     s->module_ok=ok;
+    if(ok)s->module_ms=now;
     s->quality=quality;
-    if(ok && cm && h>=J_HEIGHT_MIN_MM && h<=J_HEIGHT_MAX_MM) {
+    if(ok && height_mm && h>=J_HEIGHT_MIN_MM && h<=J_HEIGHT_MAX_MM) {
         gap=(uint32_t)(now-s->range_ms);
         s->range_ms=now; s->range_ok=1; s->height_mm=h;
         if(!f->height_started || gap>J_RANGE_FRESH_MS) {

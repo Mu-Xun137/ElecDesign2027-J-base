@@ -10,6 +10,6 @@ typedef struct {
 } JSensorFilter;
 void JSensors_Init(JSensorFilter *f);
 void JSensors_ArmReference(JSensorFilter *f);
-void JSensors_Module(JSensorFilter *f,uint16_t height_cm,int8_t dx,int8_t dy,
+void JSensors_Module(JSensorFilter *f,uint16_t height_mm,int8_t dx,int8_t dy,
                       uint8_t quality,uint8_t io_ok,uint32_t now);
 #endif

@@ -1,0 +1,220 @@
+{
+  "version": "J31-20261029-RANGE-MM",
+  "board_firmware_verified": true,
+  "app_started_after_power_cycle": true,
+  "unit_fix_verified_on_board": true,
+  "propellers_removed": true,
+  "measurements": [
+    {
+      "stage": "height30",
+      "physical_height_mm_approx": 295,
+      "reported_mm": [
+        272.0,
+        276.0
+      ],
+      "range_ok": [
+        1,
+        1
+      ],
+      "flow_ok": [
+        1,
+        1
+      ],
+      "range_timestamps_advancing": true,
+      "flow_timestamps_advancing": true,
+      "faults": [
+        0,
+        0
+      ],
+      "armed": [
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "height80",
+      "physical_height_mm_approx": 800,
+      "reported_mm": [
+        766.0,
+        773.0
+      ],
+      "range_ok": [
+        1,
+        1
+      ],
+      "flow_ok": [
+        1,
+        1
+      ],
+      "range_timestamps_advancing": true,
+      "flow_timestamps_advancing": true,
+      "faults": [
+        0,
+        0
+      ],
+      "armed": [
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "height05",
+      "physical_height_mm_approx": 50,
+      "height_mm_last_valid": [
+        17.0,
+        17.0
+      ],
+      "range_ok": [
+        0,
+        0
+      ],
+      "flow_ok": [
+        0,
+        0
+      ],
+      "timestamps_advancing": false,
+      "automatic_takeoff_height_ready": false
+    },
+    {
+      "stage": "height10",
+      "physical_height_mm_approx": 100,
+      "height_mm_last_valid": [
+        17.0,
+        17.0
+      ],
+      "range_ok": [
+        0,
+        0
+      ],
+      "flow_ok": [
+        0,
+        0
+      ],
+      "timestamps_advancing": false,
+      "automatic_takeoff_height_ready": false
+    },
+    {
+      "stage": "height20",
+      "physical_height_mm_approx": 200,
+      "height_mm_last_valid": [
+        17.0,
+        17.0
+      ],
+      "range_ok": [
+        0,
+        0
+      ],
+      "flow_ok": [
+        0,
+        0
+      ],
+      "timestamps_advancing": false,
+      "automatic_takeoff_height_ready": false
+    },
+    {
+      "stage": "height30_return",
+      "physical_height_mm_approx": null,
+      "target": "same desktop",
+      "range_ok": [
+        0,
+        0
+      ],
+      "flow_ok": [
+        0,
+        0
+      ],
+      "height_mm_last_valid": [
+        17.0,
+        17.0
+      ],
+      "timestamps_advancing": false,
+      "distance_note": "Requested 300 mm; user only answered setup method, so actual height was not confirmed"
+    },
+    {
+      "stage": "height26_coldboot",
+      "physical_height_mm_approx": 255,
+      "surface": "desktop",
+      "reported_mm": [
+        235.0,
+        234.0
+      ],
+      "range_ok": [
+        1,
+        1
+      ],
+      "flow_ok": [
+        1,
+        1
+      ],
+      "timestamps_advancing": true
+    },
+    {
+      "stage": "foam25",
+      "physical_height_mm_approx": 250,
+      "surface": "original foam board",
+      "reported_mm": [
+        234.0,
+        234.0
+      ],
+      "range_ok": [
+        1,
+        1
+      ],
+      "flow_ok": [
+        1,
+        1
+      ],
+      "timestamps_advancing": true
+    },
+    {
+      "stage": "foam_ground",
+      "physical_height_mm_approx": 10,
+      "surface": "original foam board",
+      "reported_mm": [
+        25.0,
+        25.0
+      ],
+      "range_ok": [
+        0,
+        0
+      ],
+      "flow_ok": [
+        0,
+        0
+      ],
+      "timestamps_advancing": false
+    }
+  ],
+  "static_measurement_only": true,
+  "flight_performance_verified": false,
+  "ground_check": {
+    "physical_laser_window_height_mm_approx": 10,
+    "height_mm_last_valid": [
+      20.0,
+      20.0
+    ],
+    "range_ok": [
+      0,
+      0
+    ],
+    "flow_ok": [
+      0,
+      0
+    ],
+    "timestamps_advancing": false,
+    "automatic_takeoff_height_ready": false
+  },
+  "next_step": "Agree C3 strategy for crossing the near-ground no-measurement region; stop repeating low-height tests",
+  "raw_invalid_value": "Unknown: latest raw value not retained; module_ok=1/range_ok=0 means raw=0, 1..9, or >3500 under host logic",
+  "mode_buttons_tested_this_session": false,
+  "armed_during_capture": false,
+  "user_setup_correction": {
+    "support": "All stated height tests were hand-held",
+    "target_1_to_30_cm": "Desktop, not the foam board",
+    "target_80_cm": "Floor",
+    "note": "Do not treat the 30/80 cm values as a precise same-surface calibration"
+  },
+  "user_confirmed_hardware_constraint": "Laser module can have no valid output when too close to target",
+  "breakpoint_status": "No breakpoint was set and CPU was never halted; Commander connection closed",
+  "height30_return_actual_height_confirmed": false
+}

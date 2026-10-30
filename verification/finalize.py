@@ -10,7 +10,7 @@ from build import hex_memory
 
 ROOT=Path(__file__).resolve().parents[1]
 VERIFY=ROOT/'verification'
-VERSION='J31-20261029-TIM1-RCR0'
+VERSION='J31-20261029-NEAR-LIFTOFF'
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def read_json(p):return json.loads(p.read_text(encoding='utf-8'))
@@ -95,6 +95,31 @@ def timer_audit():
         reports.append(r)
     return reports
 
+def range_audit():
+    reports=[]
+    for variant in ['basic','upgrade_single','upgrade_ab']:
+        r=read_json(VERIFY/('range_units_'+variant+'_results.json'))
+        assert r['passed'] and not r['hardware_access'] and not r['flashed']
+        assert len(r['cases'])==6 and all(c['passed'] for c in r['cases'])
+        assert [c['raw_mm'] for c in r['cases']]==[0,294,800,2000,3500,3501]
+        assert all(c['module_ms']==1030 for c in r['cases'])
+        for extension in ['axf','hex']:
+            assert sha(ROOT/'firmware'/variant/('flight_'+variant+'.'+extension))==r[extension+'_sha256']
+        reports.append(r)
+    return reports
+
+def near_audit():
+    reports=[]
+    expected=['bounded_timeout','emergency_and_io','measured_handoff','c4_handover','no_low_restart','wrap_deadline']
+    for variant in ['basic','upgrade_single','upgrade_ab']:
+        r=read_json(VERIFY/('near_takeoff_'+variant+'_results.json'))
+        assert r['passed'] and not r['hardware_access'] and not r['flashed']
+        assert [c['name'] for c in r['cases']]==expected and all(c['passed'] for c in r['cases'])
+        for extension in ['axf','hex']:
+            assert sha(ROOT/'firmware'/variant/('flight_'+variant+'.'+extension))==r[extension+'_sha256']
+        reports.append(r)
+    return reports
+
 def parameters():
     text=(ROOT/'flight/HAL/j_config.h').read_text(encoding='utf-8')
     rows=[]
@@ -121,17 +146,21 @@ def diagnostic_archive():
 
 def summary(builds,tests):
     cases=sum(x['cases'] for x in tests);checks=sum(x['assertions'] for x in tests)
-    lines=['# 本次构建与软件测试汇总','','版本：'+VERSION+'。未访问硬件、未烧录、未运行电机。','','| 构建 | Flash 实际写入字节 / 65536 | RAM 运行时跨度 / 20480 | 错误 / 警告 |','| --- | ---: | ---: | --- |']
+    lines=['# 本次构建与软件测试汇总','','版本：'+VERSION+'。本表统计本机构建和仿真，未烧录或运行电机；旧固件只读实机诊断另列。','','| 构建 | Flash 实际写入字节 / 65536 | RAM 运行时跨度 / 20480 | 错误 / 警告 |','| --- | ---: | ---: | --- |']
     for r in builds:lines.append(f"| {r['board']}_{r['variant']} | {r['flash_programmed_bytes']} | {r['ram_allocated_bytes_including_stack_heap']} | 0 / {r['warnings']}（原库） |")
     lines+=['','飞控另外保留原标定页 1024 字节。RAM 包含解压后的 RW 地址间隙和 4096 字节保留栈；堆仅在链接保留时计入。HEX 地址、校验、Cortex-M3 启动向量均已检查。','','| 实际 C 测试集 | 用例 | 断言 | 编译宏 |','| --- | ---: | ---: | --- |']
     for r in tests:lines.append(f"| {r['suite']} | {r['cases']} | {r['assertions']} | {', '.join(r['defines']) or '基础默认'} |")
     lines+=['',f'合计 **{cases} 个用例、{checks} 次断言通过**。单/双导航的已标定软件测试显式选择 `J_NAV_CALIBRATED=1`；交付升级 HEX 为保护配置 0，另有未标定拒绝测试。','', '另外以 Unicorn 2.1.4 执行三种飞控固件中实际 ARM TIM1_Config 及 ST 库机器码，各覆盖 0x00/0x5A/0xA5/0xFF 四种初始栈和寄存器状态，12 个初始化检查均通过：RCR=0、计算更新周期=3000 us、中断已使能。见 timer_*_results.json。此项是寄存器仿真，尚未在修复后的实板上测量周期。','', '状态机、协议、蜂鸣器、驱动/PWM 桩、理想坐标与光照模型的结论不等于 MCU 固件运行或实机试飞。光流尺度、推力/PID、实际灯声及飞行表现待按说明验证。','','所有构建日志为 `*_build.log`，内含实际工具命令；`*_build.json` 包含全部编译输入哈希、固件哈希与向量；链接资源详情见 `*_memory.map`。逐用例日志见 `native/<suite>/results.log`。']
+    lines+=['','本版另执行三种飞控固件的实际 ARM JSensors_Module，各检查6个原始毫米输入、有效性及成功通信时间戳，共18项通过。294、800、2000、3500按毫米直接保留；0和3501仍拒绝，但成功读取仍更新module_ms。见 range_units_*_results.json。历史十倍错误的失败证据保留在hardware_evidence/，不计入当前通过数。',
+            '', '近地起飞另以实际ARM JCore_Init/Step重放，每个飞控版本6项，共18项通过：2秒绝对期限及时间回绕、急停/模块通信失效、可靠测距接管和推力连续、C4无高度接管、防止低高度重复起转。见near_takeoff_*_results.json。与12项定时器及18项测距检查合计48项机器码检查；输入为合成数据，未模拟飞行动力学。',
+            '', '近地初值为公共推力400 PWM、变化上限450 PWM/s、期限2000 ms；必须取得至少200 mm的健康高度/垂速、至少两个不同读取时间戳并持续100 ms，才转入800 mm闭环。400为未标定初值，姿态混控可使个别电机输出超过400；时间和推力限制不保证真实高度上限。2秒到期仍不能接管时直接停机，即使实物已经离地。',
+            '', '实机证据分层：旧版只读采集确认十倍高度错误；用户烧录RANGE-MM后，拆桨上锁复测确认约29.5 cm读272/276 mm、约80 cm读766/773 mm、原泡沫板约25 cm读234 mm，正常落地约1 cm时高度无效。本NEAR-LIFTOFF仅完成本机构建及仿真，未烧录、未运行电机或试飞。证据见near_takeoff_evidence/及hardware_evidence/。']
     (VERIFY/'构建与测试汇总.md').write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n')
     return cases,checks
 
 def include_file(p):
     rel=p.relative_to(ROOT)
-    if any(x in ('Output','_build','__pycache__') for x in rel.parts):return False
+    if any(x in ('Output','_build','__pycache__','.git','.agents','.codex','.aws') for x in rel.parts):return False
     if p.suffix.lower() in ('.exe','.pyc','.zip'):return False
     return p.is_file()
 
@@ -139,7 +168,11 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--keep-builds',action='store_true',help='Preserve generated Output and _build folders')
     args=parser.parse_args()
-    builds=build_audit();tests=test_audit();originals=original_audit();timers=timer_audit()
+    builds=build_audit();tests=test_audit();originals=original_audit();timers=timer_audit();ranges=range_audit();near=near_audit()
+    predecessors=read_json(VERIFY/'前版保留核对.json')
+    assert predecessors['passed'] and predecessors['remote_flash_memory_identical_to_range_mm']
+    assert all(p['passed'] and p['source_and_firmware_unchanged'] and not p['unexpected_differences']
+        for p in predecessors['predecessors'])
     overlay={p.relative_to(ROOT/'upgrade').as_posix() for p in (ROOT/'upgrade').rglob('*') if p.is_file()}
     assert overlay=={'flight/HAL/j_config.h','flight/HAL/j_nav.c','README_替换与回退.md'}
     parameters();diagnostic_archive();cases,checks=summary(builds,tests)
@@ -158,12 +191,22 @@ def main():
                       'ram_runtime_bytes':r['ram_allocated_bytes_including_stack_heap'],'warnings':r['warnings']} for r in builds],
            'new_compiler_warnings':0,'software_cases_passed':cases,'software_assertions_passed':checks,
            'timer_machinecode_cases_passed':sum(len(r['cases']) for r in timers),
+           'range_machinecode_cases_passed':sum(len(r['cases']) for r in ranges),
+           'near_takeoff_machinecode_cases_passed':sum(len(r['cases']) for r in near),
+           'range_input_unit':'mm directly from this physically verified LC08; removed erroneous x10',
+           'manual_thrust_gain':0.45,
+           'near_takeoff':{'collective_pwm':400,'collective_slew_pwm_s':450,'timeout_ms':2000,
+               'handoff_height_min_mm':200,'handoff_continuous_ms':100,'handoff_min_distinct_read_timestamps':2,
+               'near_height_feedback':False,'thrust_calibrated':False,'real_altitude_bound_guaranteed':False,
+               'one_launch_per_manual_unlock':True,'timeout_action':'disarm and clear all motor PWM'},
            'timer_fix':'TIM1 time-base structure initialized and repetition counter explicitly zero; calculated update period 3 ms',
-           'upgrade_overlay_files':sorted(overlay),'upgrade_calibrated_gate':0,'hardware_access':False,'flashed':False,'motors_run':False,
+           'upgrade_overlay_files':sorted(overlay),'upgrade_calibrated_gate':0,'hardware_access':True,'flashed':False,'motors_run':False,
+           'hardware_scope':'Historical read-only original and user-flashed RANGE-MM while disarmed with propellers removed; this NEAR-LIFTOFF not flashed or physically tested',
            'real_flight_verified':False,'source_firmware_match':True,'baseline_preserved':True,
+           'previous_release_source_firmware_preserved':True,'remote_reflash_required':False,
            'bh1750_wiring':{'scl':'UART1/TX1/PA9','sda':'UART1/RX1/PA10','vcc':'3V3','gnd':'GND','addr':'GND'},
            'archive':ROOT.name+'.zip','archive_hash_file':ROOT.name+'.zip.sha256',
-           'limitations':['LED实物映射未核验','推力/PID及阈值待标定','LC08增量更新和尺度待核验','升级导航实机未验证','无线C2非独立硬件急停','无机载蜂鸣/备用高度/自动降落/可靠低电量保护']}
+           'limitations':['近地阶段无高度反馈，2秒到期直接停机会下落','400 PWM推力初值未实测标定，不能保证越过盲区','LED实物映射未核验','推力/PID及阈值待标定','LC08增量更新和尺度待核验','升级导航实机未验证','无线C2非独立硬件急停','无机载蜂鸣/备用高度/自动降落/可靠低电量保护']}
     dump(VERIFY/'最终核验.json',audit)
     manifest=VERIFY/'文件SHA256.json'
     files=[p for p in sorted(ROOT.rglob('*')) if include_file(p) and p!=manifest]

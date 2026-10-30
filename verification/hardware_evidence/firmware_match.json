@@ -1,0 +1,14 @@
+[
+  {
+    "candidate": "TIM1-RCR0-G045",
+    "programmed_bytes": 28412,
+    "mismatched_bytes": 0,
+    "matches": true
+  },
+  {
+    "candidate": "MANUAL-G060",
+    "programmed_bytes": 28412,
+    "mismatched_bytes": 4,
+    "matches": false
+  }
+]

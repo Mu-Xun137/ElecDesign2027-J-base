@@ -1,0 +1,9 @@
+{
+  "decision": "User explicitly selected A: bounded near-ground lift-off, then measured 800 mm closed loop",
+  "new_project": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_近地起飞修复版_20261029",
+  "based_on": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_测距单位修复版_20261029",
+  "manual_gain": 0.45,
+  "source_firmware_pending": true,
+  "hardware_flashing_authority": "User flashes; assistant does not flash or operate motors",
+  "near_stage_has_no_height_feedback": true
+}

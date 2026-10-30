@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "predecessors": [
+    {
+      "directory": "Remote and mini 5.0",
+      "manifest_entries_checked": 347,
+      "git_metadata_entries_excluded": 33,
+      "runtime_files_different_from_release_manifest": [
+        "flight/JLinkLog.txt",
+        "flight/List/flight_basic.map",
+        "flight/mini.uvguix.jxgm"
+      ],
+      "unexpected_differences": [],
+      "source_and_firmware_unchanged": true,
+      "passed": true
+    },
+    {
+      "directory": "Remote and mini 5.0_测距单位修复版_20261029",
+      "manifest_entries_checked": 368,
+      "git_metadata_entries_excluded": 85,
+      "runtime_files_different_from_release_manifest": [],
+      "unexpected_differences": [],
+      "source_and_firmware_unchanged": true,
+      "passed": true
+    },
+    {
+      "directory": "Remote and mini 5.0_油门调整版_20261029",
+      "manifest_entries_checked": 349,
+      "git_metadata_entries_excluded": 33,
+      "runtime_files_different_from_release_manifest": [
+        "remote/JLinkLog.txt",
+        "remote/Listings/remote_basic.map",
+        "remote/remote.uvguix.jxgm",
+        "remote/remote.uvoptx"
+      ],
+      "unexpected_differences": [],
+      "source_and_firmware_unchanged": true,
+      "passed": true
+    }
+  ],
+  "remote_flash_memory_identical_to_range_mm": true,
+  "remote_flash_bytes": 7632,
+  "scope": "Earlier release file manifests excluding Git metadata; Keil runtime log/map/UI/uvoptx differences are listed, preserved, and not counted as source or firmware. This change only writes the new directory. New firmware not flashed.",
+  "historical_record": true,
+  "historical_note": "Checked before the authorized 2026-10-30 sync. The main Remote and mini 5.0 directory is now intentionally updated; separately saved releases remain unchanged."
+}

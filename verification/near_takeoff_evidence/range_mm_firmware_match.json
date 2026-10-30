@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": "RANGE-MM",
+    "programmed_bytes": 28412,
+    "mismatched_bytes": 0,
+    "matches": true
+  },
+  {
+    "candidate": "TIM1-RCR0-G045",
+    "programmed_bytes": 28412,
+    "mismatched_bytes": 26453,
+    "matches": false
+  },
+  {
+    "candidate": "MANUAL-G060",
+    "programmed_bytes": 28412,
+    "mismatched_bytes": 26453,
+    "matches": false
+  }
+]

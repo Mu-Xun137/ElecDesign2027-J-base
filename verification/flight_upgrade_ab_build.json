@@ -30,20 +30,20 @@
     "HAL\\control.h": "cfe27a636a57e272a478c1b0c5c5492b1b7cd4d1676782865928b51e551afb24",
     "HAL\\j_boot.c": "ccfc9a78542c9eeb4c4fdea171b3a128cecd7770e09b9476625995f98878a514",
     "HAL\\j_boot.h": "8a72cd6a51e0362bb5cc6fe41b96db5411942efbe9c04935556f07b68195308c",
-    "HAL\\j_config.h": "3f89b4e266e52bdc9518e924b7d2d748a7b08460430dc360791459a50a878555",
-    "HAL\\j_core.c": "680eaad340506f93dd8b8d1c665857e04c183a7369772a04f78989ba712c1ed9",
-    "HAL\\j_core.h": "6a579cbfb7616470e95cc5e376fc025848966c11d24182b7febe65ac4fb22cfc",
+    "HAL\\j_config.h": "e059ca13a02ac1fff50cbde86b7c59fbfc3632ba989020608e8dde4f047f87b2",
+    "HAL\\j_core.c": "547217a29eee22ece30824b5505ddee815e3991b7de260717b6e24adc9578c7e",
+    "HAL\\j_core.h": "d7ccbb933ce371d40ae5980e1d94839d3bb8931d5346a9b6f843575fd19e697d",
     "HAL\\j_nav.c": "fdaddf9e6dd48e649c6084391bce42c27c9e52cbcaf72899745aaa3a9234786f",
     "HAL\\j_nav.h": "37ac5024a3d6cc837355dc2b582e5315a82c5065e4f3ed28280378ad8f216539",
-    "HAL\\j_platform.c": "ece2fa3c6cf161f771e1e352a0df250fb6be99810d2f46bb6a110802fe0ecd6a",
+    "HAL\\j_platform.c": "8843e63f72e19d3707f1c28ebc107a1e7e610956190f16e0b63a1f5e1b00615d",
     "HAL\\j_platform.h": "1dd8fb3dea3846442caf95e01e3229d13070ddd442eb70c6d8b8e16b2dc382a6",
     "HAL\\j_protocol.c": "34064030d56989f403962177454c882338b3ca752c4a70b20a0386ec14b257fc",
     "HAL\\j_protocol.h": "f72b949f520f235ae1371546dd2886a84ce64b8661f8fba30c452198639d9efd",
-    "HAL\\j_sensors.c": "fed762c9b93eebdba0ecf3c7290d6c6815606e0f4a822b763548f260f5a91f47",
-    "HAL\\j_sensors.h": "341ebea1396973a6ef8dc312d8640e1a305aa5870f312777307f39dbe345ef46",
+    "HAL\\j_sensors.c": "dd060f8fde88bb2703ae7c24c46dbe19170ed8ab3dfb6e6c5d72cae32fde7ed0",
+    "HAL\\j_sensors.h": "79174429fafbdd2897a4ca6cc5674573d3b33a9f03b85a250604b4c10b3ceb80",
     "HAL\\remote.c": "889a8942408314cd4f443947888b21485e7b45c9e6cbf0e204d2df977b24cb91",
     "HAL\\remote.h": "939471950a36aff9f4445815f7943ffbfab295d0e5ef1b204d27b9f149f939b0",
-    "HARDWARE\\flow.c": "5dfe6dcfd3737d91d48508725b0001fc235cf38d2016bc056a0e84e71adfa994",
+    "HARDWARE\\flow.c": "31676edb4a10599406f53a82bd351b91e7053c2f2fc45bbab0d29bb1bd41f65d",
     "HARDWARE\\flow.h": "3a911f25f310a01355a902c0bb1cdd5a474e1f01530c3413f5d2d66b872ac164",
     "HARDWARE\\j_bh1750.c": "73e65df6fbdb6e31597433640346684be17322a532941d5e974a0bf1740ab773",
     "HARDWARE\\j_bh1750.h": "489f2ab88e63b3d19cec12395d51603cc8cdd7ae29da7dd2b92d2f03edd6347d",
@@ -158,36 +158,36 @@
     "Lib\\src\\stm32f10x_usart.c": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
     "Lib\\src\\stm32f10x_wwdg.c": "1d51fbbe3da7731b2303408f00693b51dbf62226590b1264cbbf35be01aa90ea"
   },
-  "flash_programmed_bytes": 29816,
+  "flash_programmed_bytes": 30820,
   "flash_capacity_bytes": 65536,
-  "ram_allocated_bytes_including_stack_heap": 6392,
+  "ram_allocated_bytes_including_stack_heap": 6424,
   "ram_capacity_bytes": 20480,
   "ram_regions": [
     [
       "0x20000000",
-      196,
+      192,
       "RW"
     ],
     [
       "0x20000248",
-      5808,
+      5840,
       "ZI"
     ]
   ],
   "ram_method": "highest allocated RAM end minus 0x20000000; includes decompressed RW gaps and retained stack/heap",
-  "flash_span_bytes": 48104,
-  "initial_sp": "0x200018f8",
+  "flash_span_bytes": 48600,
+  "initial_sp": "0x20001918",
   "reset_vector": "0x8000105",
   "calibration_page_reserved": true,
   "warnings": 3,
   "artifacts": {
     "flight_upgrade_ab.hex": {
-      "bytes": 83932,
-      "sha256": "1fe4dbb56b816d36b90aa911158afcc7bf0ee8b5b58a649c26ba1e1bcc4dcdea"
+      "bytes": 86759,
+      "sha256": "e3bfa177588f8e497719df7ea298e46b672d3cd65d3231bee703987cfeeca4c9"
     },
     "flight_upgrade_ab.axf": {
-      "bytes": 583708,
-      "sha256": "56417c476215f595bcc6a1e6b444f4291df2b5abcaf2ba01f9ce01150bf74d9a"
+      "bytes": 598604,
+      "sha256": "74490b9b071743008c33c7f775b64284792a33112517d72c6bc438832293fee5"
     }
   },
   "flashed": false,

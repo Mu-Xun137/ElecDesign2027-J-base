@@ -1,11 +1,11 @@
 {
   "passed": true,
   "engine": "unicorn 2.1.4",
-  "axf": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0\\firmware\\upgrade_ab\\flight_upgrade_ab.axf",
-  "hex": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0\\firmware\\upgrade_ab\\flight_upgrade_ab.hex",
-  "axf_sha256": "56417c476215f595bcc6a1e6b444f4291df2b5abcaf2ba01f9ce01150bf74d9a",
-  "hex_sha256": "1fe4dbb56b816d36b90aa911158afcc7bf0ee8b5b58a649c26ba1e1bcc4dcdea",
-  "entry": "0x8009ff9",
+  "axf": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_近地起飞修复版_20261029\\firmware\\upgrade_ab\\flight_upgrade_ab.axf",
+  "hex": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_近地起飞修复版_20261029\\firmware\\upgrade_ab\\flight_upgrade_ab.hex",
+  "axf_sha256": "74490b9b071743008c33c7f775b64284792a33112517d72c6bc438832293fee5",
+  "hex_sha256": "e3bfa177588f8e497719df7ea298e46b672d3cd65d3231bee703987cfeeca4c9",
+  "entry": "0x800a3a1",
   "cases": [
     {
       "initial_stack_and_register_pattern": "0x0",

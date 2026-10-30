@@ -1,13 +1,13 @@
 {
-  "version": "J31-20261029-TIM1-RCR0",
+  "version": "J31-20261029-NEAR-LIFTOFF",
   "delivery_date": "2026-10-29",
   "passed": true,
   "original_source_files_verified_unchanged": 222,
   "builds": [
     {
       "name": "flight_basic",
-      "flash_bytes": 28412,
-      "ram_runtime_bytes": 6392,
+      "flash_bytes": 29404,
+      "ram_runtime_bytes": 6424,
       "warnings": 3
     },
     {
@@ -18,21 +18,38 @@
     },
     {
       "name": "flight_upgrade_single",
-      "flash_bytes": 29752,
-      "ram_runtime_bytes": 6392,
+      "flash_bytes": 30748,
+      "ram_runtime_bytes": 6424,
       "warnings": 3
     },
     {
       "name": "flight_upgrade_ab",
-      "flash_bytes": 29816,
-      "ram_runtime_bytes": 6392,
+      "flash_bytes": 30820,
+      "ram_runtime_bytes": 6424,
       "warnings": 3
     }
   ],
   "new_compiler_warnings": 0,
-  "software_cases_passed": 93,
-  "software_assertions_passed": 101514,
+  "software_cases_passed": 107,
+  "software_assertions_passed": 102082,
   "timer_machinecode_cases_passed": 12,
+  "range_machinecode_cases_passed": 18,
+  "near_takeoff_machinecode_cases_passed": 18,
+  "range_input_unit": "mm directly from this physically verified LC08; removed erroneous x10",
+  "manual_thrust_gain": 0.45,
+  "near_takeoff": {
+    "collective_pwm": 400,
+    "collective_slew_pwm_s": 450,
+    "timeout_ms": 2000,
+    "handoff_height_min_mm": 200,
+    "handoff_continuous_ms": 100,
+    "handoff_min_distinct_read_timestamps": 2,
+    "near_height_feedback": false,
+    "thrust_calibrated": false,
+    "real_altitude_bound_guaranteed": false,
+    "one_launch_per_manual_unlock": true,
+    "timeout_action": "disarm and clear all motor PWM"
+  },
   "timer_fix": "TIM1 time-base structure initialized and repetition counter explicitly zero; calculated update period 3 ms",
   "upgrade_overlay_files": [
     "README_替换与回退.md",
@@ -40,12 +57,15 @@
     "flight/HAL/j_nav.c"
   ],
   "upgrade_calibrated_gate": 0,
-  "hardware_access": false,
+  "hardware_access": true,
   "flashed": false,
   "motors_run": false,
+  "hardware_scope": "Historical read-only original and user-flashed RANGE-MM while disarmed with propellers removed; this NEAR-LIFTOFF not flashed or physically tested",
   "real_flight_verified": false,
   "source_firmware_match": true,
   "baseline_preserved": true,
+  "previous_release_source_firmware_preserved": false,
+  "remote_reflash_required": false,
   "bh1750_wiring": {
     "scl": "UART1/TX1/PA9",
     "sda": "UART1/RX1/PA10",
@@ -53,14 +73,29 @@
     "gnd": "GND",
     "addr": "GND"
   },
-  "archive": "Remote and mini 5.0.zip",
-  "archive_hash_file": "Remote and mini 5.0.zip.sha256",
+  "archive": null,
+  "archive_hash_file": null,
   "limitations": [
+    "近地阶段无高度反馈，2秒到期直接停机会下落",
+    "400 PWM推力初值未实测标定，不能保证越过盲区",
     "LED实物映射未核验",
     "推力/PID及阈值待标定",
     "LC08增量更新和尺度待核验",
     "升级导航实机未验证",
     "无线C2非独立硬件急停",
     "无机载蜂鸣/备用高度/自动降落/可靠低电量保护"
-  ]
+  ],
+  "synced_to_main_on": "2026-10-30",
+  "source_release": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0_近地起飞修复版_20261029",
+  "current_directory": "E:\\Inside School\\Electric Design\\Inside School\\Remote and mini 5.0",
+  "archive_generated": false,
+  "archive_policy": "No archive generated; existing archives left unchanged",
+  "main_directory_updated_as_authorized": true,
+  "previous_release_preservation_note": "Main directory updated as requested; separately saved release unchanged",
+  "reused_validated_build_and_test_reports": true,
+  "build_test_input_hashes_revalidated": true,
+  "recompiled_during_sync": false,
+  "tests_rerun_during_sync": false,
+  "hardware_access_during_sync": false,
+  "flashed_during_sync": false
 }

@@ -1,3 +1,14 @@
+PASS blind_ground_c3_starts_bounded_ramp
+PASS near_entry_guards_and_one_shot_grant
+PASS near_absolute_deadline_and_no_restart
+PASS near_all_safety_paths_stop
+PASS near_ignores_stale_and_low_height
+PASS near_handoff_continuity_and_range_loss
+PASS near_requires_post_start_changing_timestamps
+PASS near_c4_holds_collective_and_matches_without_height
+PASS near_c4_range_recovery_uses_measured_target
+PASS near_wrap_and_repeated_scheduler
+PASS physical_80mm_is_not_c3_800mm
 PASS locked_and_manual_unlock
 PASS c3_feedback_takeoff
 PASS c3_repeat_and_other_mode
@@ -25,4 +36,4 @@ PASS alignment_requires_recent_control_data
 PASS low_airborne_timeout_and_near_ground_flow_zone
 PASS height_equilibrium_has_no_collective_drift
 PASS ground_c1_preserved_and_zero_output_handover
-RESULT cases=27 checks=1230
+RESULT cases=38 checks=1747

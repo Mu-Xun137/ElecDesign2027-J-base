@@ -43,6 +43,14 @@
 #define J_THR_HOVER               500.0f
 #define J_THR_AUTO_MAX            800.0f
 #define J_THR_SLEW_PER_S          450.0f
+/* Near-ground lift-off has attitude feedback, but may have no height feedback.
+ * Initial bench values: calibrate thrust/time under supervision on hardware. */
+#define J_NEAR_THR_PWM            400.0f
+#define J_NEAR_TIMEOUT_MS         2000U
+#define J_NEAR_EXIT_MM            200.0f
+#define J_NEAR_CONFIRM_MS         100U
+#define J_NEAR_MODULE_FRESH_MS    30U
+#define J_NEAR_MAX_TILT_DEG       15.0f
 #define J_HEIGHT_TARGET_MM_S      250.0f
 #define J_CLIMB_MAX_MM_S          250.0f
 #define J_DESCEND_MAX_MM_S        350.0f

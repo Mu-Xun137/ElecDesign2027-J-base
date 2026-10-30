@@ -204,6 +204,7 @@ static void manual_unlock(JCore *c, const JInput *i)
         c->led_epoch_ms=i->now_ms;
         c->ground_valid=JCore_HeightHealthy(i);
         c->ground_mm=i->s.height_mm;
+        c->launch_available=1;
         c->roll_center=(int16_t)i->channels[0]-1500;
         c->pitch_center=(int16_t)i->channels[1]-1500;
         capture(c,i);
@@ -220,11 +221,45 @@ static void request_align(JCore *c, const JInput *i)
     c->low_active=0;
     capture(c,i);
 }
+static uint8_t module_healthy(const JInput *i)
+{
+    return i->s.module_ok && J_Fresh(i->now_ms,i->s.module_ms,J_NEAR_MODULE_FRESH_MS);
+}
+static uint8_t first_ground_start(const JCore *c)
+{
+    return c->launch_available && !c->motors_on && !c->airborne && !c->enabled &&
+        (c->mode==J_MANUAL || c->mode==J_C1_HOLD);
+}
+static void near_begin(JCore *c, const JInput *i)
+{
+    c->mode=J_C3_AUTO; c->align=J_ALIGN_NONE;
+    c->near_active=1; c->near_align=0; c->near_valid_active=0; c->near_valid_reads=0;
+    c->near_start_ms=i->now_ms; c->near_last_range_ms=0;
+    c->launch_available=0;
+    c->common=0.0f; c->vz_integral=0.0f;
+    /* This target is inactive while blind; it is NOT a measured zero height. */
+    c->height_target_mm=0.0f; c->goal_mm=J_TARGET_MM;
+    c->ground_valid=0; c->airborne=0;
+    c->stable_active=c->hold_active=c->match_active=c->low_active=0;
+    c->flow_bad_active=0;
+    c->roll_cmd=c->pitch_cmd=c->flow_roll=c->flow_pitch=0.0f;
+    c->flow_ix=c->flow_iy=0.0f;
+    c->yaw_target=i->s.yaw_deg;
+    c->fault=J_OK;
+}
 static void keys(JCore *c, const JInput *i)
 {
     uint8_t e=i->events;
     /* C2 and the raw-stick emergency have already been processed, independently. */
     if(c->mode==J_LIGHT_HOLD || c->mode==J_LASER_WAIT) return;
+    if(c->near_active) {
+        if(e&J_C4) {
+            cancel_nav(c);
+            c->near_align=!c->near_align;
+            c->align=J_ALIGN_NONE; c->match_active=0;
+        }
+        return; /* C1/C3 cannot restart or extend this bounded stage. */
+    }
     if(c->mode==J_ALIGN) {
         if(e&J_C4) {
             c->mode=c->resume_mode; c->align=J_ALIGN_NONE; c->match_active=0;
@@ -253,17 +288,28 @@ static void keys(JCore *c, const JInput *i)
         return;
     }
     if((e&J_C3) && c->mode!=J_C3_AUTO) {
+        uint8_t near_needed=first_ground_start(c) &&
+            (!JCore_HeightHealthy(i) || i->s.height_mm<J_NEAR_EXIT_MM);
+        uint8_t near_allowed=near_needed && module_healthy(i) &&
+            i->channels[2]<=1050U && sticks_centered(c,i) &&
+            J_Abs(i->s.roll_deg)<=J_STABLE_TILT_DEG && J_Abs(i->s.pitch_deg)<=J_STABLE_TILT_DEG;
+        uint8_t low_restart=!near_allowed && !c->motors_on &&
+            (!JCore_HeightHealthy(i) || i->s.height_mm<J_NEAR_EXIT_MM);
+        uint8_t low_untrusted=!near_allowed && i->s.height_mm<J_NEAR_EXIT_MM &&
+            (!i->s.velocity_ok || !finite_value(i->s.vz_mm_s));
         uint8_t flow_ready=JCore_FlowHealthy(i) ||
             (i->s.height_mm<=J_AIRBORNE_MM && i->s.module_ok &&
              J_Fresh(i->now_ms,i->s.range_ms,J_RANGE_FRESH_MS));
-        if(!JCore_HeightHealthy(i) || !flow_ready || !imu_healthy(i) ||
+        if((near_needed && !near_allowed) || low_restart || low_untrusted ||
+           (!near_allowed && (!JCore_HeightHealthy(i) || !flow_ready)) || !imu_healthy(i) ||
            c->ambient_count<J_AMBIENT_SAMPLES || !i->s.light_ok ||
            !J_Fresh(i->now_ms,i->s.light_ms,J_LIGHT_FRESH_MS)) {
             c->fault=J_ERR_PREFLIGHT; return;
         }
         cancel_nav(c);
         c->nav_requested=c->nav_pending=J_NAV_MODE!=0; c->nav_completed=0;
-        auto_enter(c,i,J_C3_AUTO);
+        if(near_allowed) near_begin(c,i);
+        else auto_enter(c,i,J_C3_AUTO);
         c->phase=J_ADJUST; c->adjust_ms=i->now_ms;
         c->completed=c->task_failed=0;
         c->light_count=c->exit_count=0;
@@ -332,7 +378,8 @@ static void align_step(JCore *c, const JInput *i)
     else c->align=J_ALIGN_MATCH;
     if(c->align!=J_ALIGN_MATCH || !sticks_centered(c,i) ||
        !i->have_rc || !J_Fresh(i->now_ms,i->rc_ms,J_ALIGN_RC_FRESH_MS) ||
-       !imu_healthy(i) || (c->mode!=J_LASER_WAIT && !JCore_HeightHealthy(i))) {
+       !imu_healthy(i) || (c->mode!=J_LASER_WAIT &&
+       !(c->near_active && c->near_align) && !JCore_HeightHealthy(i))) {
         c->match_active=0; return;
     }
     if(!c->match_active) { c->match_active=1; c->match_ms=i->now_ms; }
@@ -343,7 +390,56 @@ static void align_step(JCore *c, const JInput *i)
     c->motors_on=c->motors_on || i->channels[2]>1100U;
     c->vz_integral=0.0f; c->flow_ix=c->flow_iy=0.0f;
     c->low_active=0; c->match_active=0; c->align=J_ALIGN_NONE;
+    c->near_active=c->near_align=c->near_valid_active=0;
     ++c->takeover_event;
+}
+static void near_step(JCore *c, const JInput *i, float dt)
+{
+    uint32_t since_start=(uint32_t)(i->s.range_ms-c->near_start_ms);
+    float target,seed,yaw;
+    uint8_t range_ready;
+    if(!module_healthy(i)) { JCore_Stop(c,J_ERR_RANGE,i->now_ms); return; }
+    if(J_Abs(i->s.roll_deg)>J_NEAR_MAX_TILT_DEG || J_Abs(i->s.pitch_deg)>J_NEAR_MAX_TILT_DEG) {
+        JCore_Stop(c,J_ERR_TILT,i->now_ms); return;
+    }
+    if((uint32_t)(i->now_ms-c->near_start_ms)>=J_NEAR_TIMEOUT_MS) {
+        JCore_Stop(c,J_ERR_TAKEOFF_GROUND,i->now_ms); return;
+    }
+    range_ready=JCore_HeightHealthy(i) && i->s.velocity_ok && finite_value(i->s.vz_mm_s) &&
+        i->s.height_mm>=J_NEAR_EXIT_MM && since_start>0U && since_start<0x80000000U;
+    if(range_ready) {
+        if(!c->near_valid_active) {
+            c->near_valid_active=1; c->near_valid_ms=i->now_ms;
+            c->near_valid_reads=1; c->near_last_range_ms=i->s.range_ms;
+        } else if(c->near_last_range_ms!=i->s.range_ms) {
+            c->near_last_range_ms=i->s.range_ms;
+            if(c->near_valid_reads<255U)++c->near_valid_reads;
+        }
+        if(c->near_valid_reads>=2U && (uint32_t)(i->now_ms-c->near_valid_ms)>=J_NEAR_CONFIRM_MS) {
+            uint8_t align=c->near_align;
+            c->near_active=c->near_align=c->near_valid_active=0;
+            c->height_target_mm=i->s.height_mm; c->goal_mm=J_TARGET_MM;
+            /* At zero initial target velocity, PI error is -measured_vz. */
+            seed=c->common-J_THR_HOVER+J_VZ_P*i->s.vz_mm_s;
+            c->vz_integral=J_Clamp(seed,-J_VZ_I_LIMIT,J_VZ_I_LIMIT);
+            c->airborne=1; c->flow_bad_active=0;
+            yaw=c->yaw_target;
+            capture(c,i);
+            if(align)request_align(c,i);
+            c->yaw_target=yaw;
+            return; /* Preserve common exactly on the handover cycle. */
+        }
+    } else {
+        c->near_valid_active=0; c->near_valid_reads=0;
+    }
+    if(c->near_align) {
+        /* No height hold claim here; hold collective for bounded C4 matching. */
+        align_step(c,i);
+    } else {
+        target=J_Clamp(J_NEAR_THR_PWM,0.0f,J_THR_AUTO_MAX);
+        target=J_Clamp(target,0.0f,J_ManualThrust(J_MANUAL_THR_MAX_CHANNEL));
+        c->common=slew(c->common,target,J_THR_SLEW_PER_S*dt);
+    }
 }
 static void flow_axis(float *target, uint8_t *moving, float position, int stick,
                       uint8_t allow_stick, float *vel)
@@ -363,6 +459,11 @@ static void horizontal_step(JCore *c, const JInput *i, float dt)
     float roll=0.0f,pitch=0.0f,flow_dt,vx=0.0f,vy=0.0f,ex,ey;
     uint8_t fixed=c->mode==J_ALIGN || c->mode==J_LIGHT_HOLD || c->nav_running;
     uint8_t use_flow=c->mode!=J_MANUAL && c->mode!=J_FLOW_HOLD && c->mode!=J_LASER_WAIT;
+    if(c->near_active) {
+        c->roll_cmd=slew(c->roll_cmd,0.0f,J_ATTITUDE_SLEW_DEG_S*dt);
+        c->pitch_cmd=slew(c->pitch_cmd,0.0f,J_ATTITUDE_SLEW_DEG_S*dt);
+        return; /* Ignore stale height/flow and ordinary sticks; retain yaw target. */
+    }
     if(!fixed) {
         if(i->channels[3]>1820U) c->yaw_target-=J_YAW_RATE_DEG_S*dt;
         else if(i->channels[3]<1180U) c->yaw_target+=J_YAW_RATE_DEG_S*dt;
@@ -401,6 +502,7 @@ static void horizontal_step(JCore *c, const JInput *i, float dt)
 }
 static void fault_checks(JCore *c, const JInput *i)
 {
+    if(c->near_active)return; /* near_step enforces its shorter deadline and I/O guard. */
     if(!J_Fresh(i->now_ms,i->s.range_ms,J_RANGE_FAIL_MS)) {
         if(c->mode==J_MANUAL) { if(c->enabled) c->fault=J_ERR_RANGE; return; }
         if(c->mode!=J_LASER_WAIT) {
@@ -487,13 +589,20 @@ void JCore_Step(JCore *c, const JInput *i)
     c->last_tick_ms=i->now_ms; c->tick_started=1;
     dt=(float)(elapsed?elapsed:3U)*0.001f;
     light_samples(c,i);
+    if(c->motors_on)c->launch_available=0;
     if(!c->armed) { if(i->have_rc) manual_unlock(c,i); return; }
-    if(JCore_HeightHealthy(i) && (c->ground_valid?
+    if(!c->near_active && JCore_HeightHealthy(i) && (c->ground_valid?
        i->s.height_mm>c->ground_mm+J_LIFTOFF_DELTA_MM:i->s.height_mm>J_AIRBORNE_MM)) c->airborne=1;
     fault_checks(c,i);
     if(!c->armed) return;
     keys(c,i);
+    if(c->near_active) {
+        near_step(c,i,dt);
+        if(c->armed)horizontal_step(c,i,dt);
+        return;
+    }
     height_step(c,i,dt);
+    if(c->motors_on)c->launch_available=0;
     if(!c->armed) return;
     if(c->mode==J_ALIGN || c->mode==J_LASER_WAIT) align_step(c,i);
     if(c->mode==J_C3_AUTO && c->phase==J_ADJUST) {

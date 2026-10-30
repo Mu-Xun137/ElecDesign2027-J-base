@@ -8,8 +8,8 @@ void flow_get_data(void)
 {
     uint8_t b[5]={0};
     uint8_t ok=IIC_read_Bytes(0xC4,0x33,b,5)==0;
-    uint16_t cm=(uint16_t)((uint16_t)b[0]<<8|b[1]);
-    JSensors_Module(&j_sensor,cm,(int8_t)b[2],(int8_t)b[3],b[4],ok,SysTick_count);
+    uint16_t height_mm=(uint16_t)((uint16_t)b[0]<<8|b[1]);
+    JSensors_Module(&j_sensor,height_mm,(int8_t)b[2],(int8_t)b[3],b[4],ok,SysTick_count);
     if(j_sensor.value.range_ok) VL53L01_high=(uint32_t)j_sensor.value.height_mm;
     flow_data.vel_x=(int8_t)b[2]; flow_data.vel_y=(int8_t)b[3]; flow_data.squal=b[4];
     flow_data.pos_x_i=j_sensor.value.x_px; flow_data.pos_y_i=j_sensor.value.y_px;

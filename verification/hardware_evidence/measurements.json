@@ -1,0 +1,33 @@
+{
+  "target_version": "J31-20261029-TIM1-RCR0",
+  "target_gain": 0.45,
+  "physical_measurements": [
+    {
+      "stage": "height30",
+      "physical_height_mm_approx": 300,
+      "reported_old_height_mm": [
+        2940,
+        2910
+      ],
+      "range_ok": 1,
+      "flow_ok": 1
+    },
+    {
+      "stage": "height80",
+      "physical_height_mm_approx": 800,
+      "reported_old_height_mm_stale": 440,
+      "range_ok": 0,
+      "flow_ok": 0,
+      "hand_held": true
+    }
+  ],
+  "propellers_removed": true,
+  "target_armed": false,
+  "pwm_ccr_all_zero": true,
+  "cpu_running_before_after": true,
+  "hardware_access": "Read-only old firmware; no reset, flash, arm, or motor commands",
+  "fixed_firmware_flashed": false,
+  "real_flight_verified": false,
+  "snapshot_caveat": "Non-atomic RAM; signed relative ages may be negative from read skew",
+  "raw_capture_directory": "E:\\Inside School\\Electric Design\\Inside School\\diagnostics_20261029\\auto_modes_01"
+}
